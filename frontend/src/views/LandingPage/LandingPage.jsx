@@ -49,7 +49,7 @@ class LandingPage extends React.Component {
         >
           <div className={classes.container}>
             <GridContainer>
-              <GridItem xs={12} sm={12} md={6}>
+              <GridItem xs={12} sm={12} md={8}>
                 <h1 className={classes.title}>台大創創 X 企業垂直加速器</h1>
                 <h4>
                   Every landing page needs a small description after the big
