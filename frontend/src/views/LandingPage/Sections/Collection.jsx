@@ -18,6 +18,7 @@ const appearVideo = Radium.keyframes({
 
 const styles = {
   wrapper:{
+    position: 'relative',
     height: '100%',
     width: '100%',
     display: 'flex',
@@ -33,7 +34,7 @@ const styles = {
     animationFillMode: 'forwards',
   },
   backgroundVideo: {
-    position: 'fixed',
+    position: 'absolute',
     minWidth: '100%',
     minHeight: '100%',
     margin: 0,
@@ -79,7 +80,7 @@ const styles = {
     width: 2,
     height: '100%',
     marginLeft: -1,
-    backgroundColor: 'black', //shoudchange
+    backgroundColor: 'black', //shouldchange
     animationName: appear,
     animationDuration: '1s',
     animationFillMode: 'forwards',
