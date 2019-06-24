@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
 
 import "assets/scss/material-kit-react.scss?v=1.7.0";
 
@@ -11,16 +13,21 @@ import LandingPage from "views/LandingPage/LandingPage.jsx";
 import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
 
-var hist = createBrowserHistory();
+const client = new ApolloClient({ uri: "http://localhost:4001"});
 
-ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      <Route path="/landing-page" component={LandingPage} />
-      <Route path="/profile-page" component={ProfilePage} />
-      <Route path="/login-page" component={LoginPage} />
-      <Route path="/" component={Components} />
-    </Switch>
-  </Router>,
-  document.getElementById("root")
+let hist = createBrowserHistory();
+
+const wrappedApp = (
+  <ApolloProvider client={client}>
+    <Router history={hist}>
+      <Switch>
+        <Route path="/landing-page" component={LandingPage} />
+        <Route path="/profile-page" component={ProfilePage} />
+        <Route path="/login-page" component={LoginPage} />
+        <Route path="/" component={Components} />
+      </Switch>
+    </Router>
+  </ApolloProvider>
 );
+
+ReactDOM.render(wrappedApp, document.getElementById("root"));
