@@ -10,7 +10,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 // core components
 import Header from "components/Header/Header.jsx";
-import Footer from "components/Footer/Footer.jsx";
+import Footer from "./Sections/Footer";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
@@ -20,15 +20,18 @@ import Parallax from "components/Parallax/Parallax.jsx";
 import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx";
 
 // Sections for this page
-import ProductSection from "./Sections/ProductSection.jsx";
-import TeamSection from "./Sections/TeamSection.jsx";
-import WorkSection from "./Sections/WorkSection.jsx";
+// import ProductSection from "./Sections/ProductSection.jsx";
+// import TeamSection from "./Sections/TeamSection.jsx";
+// import WorkSection from "./Sections/WorkSection.jsx";
+import SectionCarousel from "./Sections/SectionCarousel.jsx";
+import Collection from "./Sections/Collection.jsx";
 
 const dashboardRoutes = [];
 
 class LandingPage extends React.Component {
   render() {
     const { classes, ...rest } = this.props;
+
     return (
       <div>
         <Header
@@ -43,7 +46,12 @@ class LandingPage extends React.Component {
           }}
           {...rest}
         />
-        <Parallax
+
+        {/* 輪播圖 */}
+        < SectionCarousel/>
+
+
+        {/* <Parallax
           filter
           image="https://tec.ntu.edu.tw/wp-content/uploads/2017/10/acce-slider-bg.png"
         >
@@ -71,12 +79,17 @@ class LandingPage extends React.Component {
               </GridItem>
             </GridContainer>
           </div>
-        </Parallax>
+        </Parallax> */}
+
+
+
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
-            <ProductSection />
+            {/* <ProductSection />
             <TeamSection />
-            <WorkSection />
+            <WorkSection /> */}
+            <Collection />
+            
           </div>
         </div>
         <Footer />
