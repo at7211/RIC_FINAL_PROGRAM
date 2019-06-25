@@ -2,7 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Radium from 'radium';
-import './Collection.css';
+import '../Collection.css';
 
 const appear = Radium.keyframes({
   '0%': {opacity: 0},
@@ -34,13 +34,11 @@ const styles = {
     animationFillMode: 'forwards',
   },
   backgroundVideo: {
-    position: 'absolute',
-    minWidth: '100%',
-    minHeight: '100%',
+    position: 'fixed',
+    width: '100%',
+    height: '100%',
     margin: 0,
     padding: 0,
-    left: 0,
-    bottom: 0,
     zIndex: -1,
     filter: 'grayscale(80%)',
     animationName: appearVideo,
@@ -61,7 +59,6 @@ const styles = {
     animationFillMode: 'forwards',
   },
   timeline: {
-
     display: 'flex',
     margin: '0 auto',
     flexWrap: 'wrap',
@@ -74,7 +71,6 @@ const styles = {
     animationFillMode: 'forwards',
   },
   line: {
-
     position: 'absolute',
     left: '50%',
     width: 2,
@@ -126,7 +122,6 @@ const styles = {
     opacity: 1,
   },
   timelineContentTitle: {
-
     color:'black',
     fontSize: 66,
     margin: '-10px 0 0 0',
@@ -134,10 +129,12 @@ const styles = {
     padding: '0 10px',
     boxSizing: 'border-box',
     fontFamily: '"Pathway Gothic One", sans-serif',
-    color: '#fff',
     animationName: appear,
     animationDuration: '1s',
     animationFillMode: 'forwards',
+  },
+  timelineContentDesc: {
+    color: 'black',
   },
   timelineItem__active: {
     opacity: 1,
@@ -147,12 +144,9 @@ const styles = {
 };
 
 class Collection extends PureComponent {
-  _isMounted = false;
-
   constructor(props){
     super(props)
     this.state = {
-      changeVideo: false,
       items: [
           {
             id: 0,
@@ -172,65 +166,15 @@ class Collection extends PureComponent {
           content: 'Timing是一個致力於傳承受到街舞文化的街舞媒體。以易理解的原創性內容，受到廣大街舞圈的支持，也曾和台灣吧、hornet、台中歌劇院週刊等單位合作過，幫助更多一般大眾理解街舞文化。主要於團隊中擔當主理人，以及部分的影片剪輯與動畫後製',
         }
       ],
-      video: '',
     }
   }
 
-  componentDidMount(){
-    this._isMounted = true;
-    this.node.scrollIntoView();
-
-    fetch("http://localhost:3001/api/videos")
-      .then(res => res.json())
-      .then(data => {
-        if(this._isMounted){
-          this.setState({
-            items: data,
-          })
-        }
-      })
-      .then(() => {
-        if(this._isMounted){
-          this.setState({
-            video: this.state.items ? this.state.items[0].link : ''
-          })
-        }
-      });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    window.onscroll = () => {
-      // 應該有更好的寫法 ＱＡＱ
-      let k = 0
-      for( let i = 0; i < this.state.items.length; i++){
-        if (window.pageYOffset > 500*i) {
-          k = i
-        }
-      }
-      if(this._isMounted){
-        this.setState({
-          video: this.state.items[k].link,
-        })
-      }
-    }
-
-    if (this.state.video !== prevState.video && this._isMounted) {
-      this.setState({
-        changeVideo: !this.state.changeVideo,
-      })
-    }
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
 
   render() {
-    const { changeVideo, items, video } = this.state;
+    const { items } = this.state;
 
     return (
       <Fragment>
-        <div ref={node => this.node = node} />
         <div style={styles.wrapper}>
           <iframe
               style={styles.backgroundVideo}
@@ -242,7 +186,6 @@ class Collection extends PureComponent {
               allowFullScreen
               title="Youtube Player"
               unselectable="on" />
-         
           <div style={styles.timelineHeader}>
             <h3 style={styles.h1} >從 2017 年起，紀錄一些我曾做過的事。</h3>
           </div>

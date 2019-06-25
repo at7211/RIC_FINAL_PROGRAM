@@ -12,9 +12,9 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Card from "components/Card/Card.jsx";
 import carouselStyle from "assets/jss/material-kit-react/views/componentsSections/carouselStyle.jsx";
-import image1 from "assets/img/bg.jpg";
-import image2 from "assets/img/bg2.jpg";
-import image3 from "assets/img/bg3.jpg";
+
+import { Query, Mutation } from 'react-apollo';
+import { gql } from 'apollo-boost';
 
 class SectionCarousel extends React.Component {
   render() {
@@ -39,39 +39,55 @@ class SectionCarousel extends React.Component {
       describe: '2019創創週《創闖看!》系列活動',
     }]
 
-    
-    const imgElements = fakeData.map((img) => (
-      <div key={img.id}>
-        <img
-          src={img.link}
-          alt="First slide"
-          className="slick-image"
-        />
-        <div className="slick-caption" >
-          <h4>
-            <LocationOn className="slick-icons" />
-            {img.describe}
-          </h4>
-        </div>
-      </div>
-      
-    ));
-
-
-
+    const ACTIVITIES = gql`
+      query {
+        activities {
+          id
+          link
+          title
+          content
+          date
+        }
+      }
+    `
 
     return (
       <div className={classes.section}>
         <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={8} className={classes.marginAuto}>
-              <Card carousel>
-                <Carousel {...settings}>
-                  {imgElements}
-                </Carousel>
-              </Card>
-            </GridItem>
-          </GridContainer>
+          <Query query={ACTIVITIES}>
+            {({ loading, error, data }) => {
+              if (loading) return <p>loading....</p>;
+              if (error) return <p>error:(</p>;
+
+              const imgElements = fakeData.map((img) => (
+                <div key={img.id}>
+                  <img
+                    src={img.link}
+                    alt="First slide"
+                    className="slick-image"
+                  />
+                  <div className="slick-caption" >
+                    <h4>
+                      <LocationOn className="slick-icons" />
+                      {img.describe}
+                    </h4>
+                  </div>
+                </div>
+              ));
+
+              return(
+                <GridContainer>
+                  <GridItem xs={12} sm={12} md={8} className={classes.marginAuto}>
+                    <Card carousel>
+                      <Carousel {...settings}>
+                        {imgElements}
+                      </Carousel>
+                    </Card>
+                  </GridItem>
+                </GridContainer>
+              )
+            }}
+          </Query>
         </div>
       </div>
     );
