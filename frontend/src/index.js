@@ -13,21 +13,29 @@ import LandingPage from "views/LandingPage/LandingPage.jsx";
 import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
 
+import { StyleRoot } from 'radium';
+
+
 const client = new ApolloClient({ uri: "http://localhost:4001"});
 
 let hist = createBrowserHistory();
 
 const wrappedApp = (
-  <ApolloProvider client={client}>
-    <Router history={hist}>
-      <Switch>
-        <Route path="/landing-page" component={LandingPage} />
-        <Route path="/profile-page" component={ProfilePage} />
-        <Route path="/login-page" component={LoginPage} />
-        <Route path="/" component={Components} />
-      </Switch>
-    </Router>
-  </ApolloProvider>
+  <StyleRoot>
+    <ApolloProvider client={client}>
+      <Router history={hist}>
+        <Switch>
+          <Route path="/landing-page" component={LandingPage} />
+          <Route path="/profile-page" component={ProfilePage} />
+          <Route path="/login-page" component={LoginPage} />
+          <Route path="/" component={Components} />
+        </Switch>
+      </Router>
+    </ApolloProvider>
+  </StyleRoot>
+
 );
 
-ReactDOM.render(wrappedApp, document.getElementById("root"));
+ReactDOM.render(
+  wrappedApp, document.getElementById("root")
+  );

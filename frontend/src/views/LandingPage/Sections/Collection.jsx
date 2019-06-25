@@ -1,0 +1,280 @@
+import React, { PureComponent, Fragment } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import Radium from 'radium';
+import './Collection.css';
+
+const appear = Radium.keyframes({
+  '0%': {opacity: 0},
+  '100%': {opacity: 1},
+}, 'pulse');
+
+const appearVideo = Radium.keyframes({
+  '0%': {opacity: 0},
+  '90%': {opacity: 0},
+  '100%': {opacity: 0.1},
+}, 'pulse');
+
+
+const styles = {
+  wrapper:{
+    position: 'relative',
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    padding:' 200px 0 0 0',
+    animationName: appear,
+    animationDuration: '1s',
+    animationFillMode: 'forwards',
+  },
+  h1:{
+    animationName: appear,
+    animationDuration: '1s',
+    animationFillMode: 'forwards',
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    minWidth: '100%',
+    minHeight: '100%',
+    margin: 0,
+    padding: 0,
+    left: 0,
+    bottom: 0,
+    zIndex: -1,
+    filter: 'grayscale(80%)',
+    animationName: appearVideo,
+    animationDuration: '4000ms',
+    animationFillMode: 'forwards',
+  },
+  timelineHeader: {
+    display: 'flex',
+    height: '100%',
+    width: '100%',
+    color:'black',
+    flexDirection: 'column',
+    justifyContent: 'initial',
+    alignItems: 'center',
+    margin: '0 0 80px 0',
+    animationName: appear,
+    animationDuration: '1s',
+    animationFillMode: 'forwards',
+  },
+  timeline: {
+
+    display: 'flex',
+    margin: '0 auto',
+    flexWrap: 'wrap',
+    flexDirection: 'column',
+    height: '100%',
+    maxWidth: 700,
+    position: 'relative',
+    animationName: appear,
+    animationDuration: '1s',
+    animationFillMode: 'forwards',
+  },
+  line: {
+
+    position: 'absolute',
+    left: '50%',
+    width: 2,
+    height: '100%',
+    marginLeft: -1,
+    backgroundColor: 'black', //shouldchange
+    animationName: appear,
+    animationDuration: '1s',
+    animationFillMode: 'forwards',
+  },
+  timelineItem: {
+    padding: '40px 0',
+    opacity: '.3',
+    filter: 'blur(2px)',
+    transition: '.5s',
+    boxSizing: 'border-box',
+    width: 'calc(50% - 36px)',
+    display: 'flex',
+    position: 'relative',
+    transform: 'translateY(-80px)',
+    animationName: appear,
+    animationDuration: '1s',
+    animationFillMode: 'forwards',
+  },
+  timelineImg: {
+    maxWidth: '100%',
+    boxShadow: '0 10px 15px rgba(0, 0, 0, 0.4)',
+  },
+  timelineTitle: {
+    letterSpacing: 3,
+    width: '100%',
+    position: 'absolute',
+    color: 'black', //should change rgba(255, 255, 255, 0.5)
+    fontSize: 13,
+    fontFamily: '"Pathway Gothic One", sans-serif',
+    borderLeft: '2px solid rgba(255, 255, 255, 0.5)',
+    top: '70%',
+    margin: '-5px 0 0 0',
+    padding: '0 0 0 15px',
+    opacity: 0,
+    right: 'calc(-100% - 56px)',
+    animationName: appear,
+    animationDuration: '1s',
+    animationFillMode: 'forwards',
+  },
+  timelineTitle__active: {
+    top: '50%',
+    transition: '.3s all .2s',
+    opacity: 1,
+  },
+  timelineContentTitle: {
+
+    color:'black',
+    fontSize: 66,
+    margin: '-10px 0 0 0',
+    transition: '.4s',
+    padding: '0 10px',
+    boxSizing: 'border-box',
+    fontFamily: '"Pathway Gothic One", sans-serif',
+    color: '#fff',
+    animationName: appear,
+    animationDuration: '1s',
+    animationFillMode: 'forwards',
+  },
+  timelineItem__active: {
+    opacity: 1,
+    transform: 'translateY(0)',
+    filter: 'blur(0px)',
+  },
+};
+
+class Collection extends PureComponent {
+  _isMounted = false;
+
+  constructor(props){
+    super(props)
+    this.state = {
+      changeVideo: false,
+      items: [
+          {
+            id: 0,
+            name: 'NTU COMPETITION',
+            date: '2017.2 - 2017.5',
+            // link: 'https://www.youtube.com/embed/kfzBM6ot9GI?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&modestbranding=0',
+            // link: 'https://www.youtube.com/embed/nTm2fBQ3W3w?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&modestbranding=0',
+            link: 'https://www.youtube.com/embed/nTm2fBQ3W3w?controls=0&showinfo=0&rel=0&autoplay=1&loop=0&modestbranding=0&iv_load_policy=3',
+            img: 'https://i.imgur.com/dnFtQI6.jpg',
+            content: '全台公認最具指標性排舞競賽，被視為街舞年度盛會。將近2200名現場觀眾、直播線上人數可達一萬四千人。於2017年擔任總召，期間帶領50位團隊成員，策劃初賽＆決賽流程，並成功接洽Calvin',
+        },{
+          id: 1,
+          name: 'TIMING',
+          date: '2017.7 - 2019.1',
+          link: 'https://www.youtube.com/embed/IadwyRFYnF8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&modestbranding=0',
+          img: 'https://i.imgur.com/RYLzJUV.jpg',
+          content: 'Timing是一個致力於傳承受到街舞文化的街舞媒體。以易理解的原創性內容，受到廣大街舞圈的支持，也曾和台灣吧、hornet、台中歌劇院週刊等單位合作過，幫助更多一般大眾理解街舞文化。主要於團隊中擔當主理人，以及部分的影片剪輯與動畫後製',
+        }
+      ],
+      video: '',
+    }
+  }
+
+  componentDidMount(){
+    this._isMounted = true;
+    this.node.scrollIntoView();
+
+    fetch("http://localhost:3001/api/videos")
+      .then(res => res.json())
+      .then(data => {
+        if(this._isMounted){
+          this.setState({
+            items: data,
+          })
+        }
+      })
+      .then(() => {
+        if(this._isMounted){
+          this.setState({
+            video: this.state.items ? this.state.items[0].link : ''
+          })
+        }
+      });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    window.onscroll = () => {
+      // 應該有更好的寫法 ＱＡＱ
+      let k = 0
+      for( let i = 0; i < this.state.items.length; i++){
+        if (window.pageYOffset > 500*i) {
+          k = i
+        }
+      }
+      if(this._isMounted){
+        this.setState({
+          video: this.state.items[k].link,
+        })
+      }
+    }
+
+    if (this.state.video !== prevState.video && this._isMounted) {
+      this.setState({
+        changeVideo: !this.state.changeVideo,
+      })
+    }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
+  render() {
+    const { changeVideo, items, video } = this.state;
+
+    return (
+      <Fragment>
+        <div ref={node => this.node = node} />
+        <div style={styles.wrapper}>
+          <iframe
+              style={styles.backgroundVideo}
+              width="560"
+              height="315"
+              src={items[0].link}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Youtube Player"
+              unselectable="on" />
+         
+          <div style={styles.timelineHeader}>
+            <h3 style={styles.h1} >從 2017 年起，紀錄一些我曾做過的事。</h3>
+          </div>
+          <div style={styles.timeline}>
+            {items.map(item => {
+              return (
+                <div style={styles.timeline} key={item.id}>
+                  <div style={styles.line} />
+                  <div style={{
+                    ...styles.timelineItem,
+                    ...styles.timelineItem__active}}>
+                    <div style={{
+                      ...styles.timelineTitle,
+                      ...styles.timelineTitle__active}}>{item.name}</div>
+                    <div style={styles.timelineContent}>
+                      <LazyLoadImage
+                        style={styles.timelineImg}
+                        alt={item.name}
+                        src={item.img}
+                        effect="blur" />
+                      <h2 style={styles.timelineContentTitle}>{item.date}</h2>
+                      <p style={styles.timelineContentDesc}>{item.content}</p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </Fragment>
+    )
+  }
+}
+
+export default Radium(Collection);
