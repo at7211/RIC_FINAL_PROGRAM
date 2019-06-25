@@ -126,7 +126,6 @@ const styles = {
     opacity: 1,
   },
   timelineContentTitle: {
-
     color:'black',
     fontSize: 66,
     margin: '-10px 0 0 0',
