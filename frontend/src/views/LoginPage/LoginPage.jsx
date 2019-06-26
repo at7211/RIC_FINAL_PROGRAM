@@ -19,11 +19,38 @@ import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
 
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 import image from "assets/img/bg7.jpg";
+
+import { Form, Field } from 'react-final-form';
+import { Input, TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
+import { Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const LOGIN = gql`
+  mutation login(
+    $account: String!
+    $password: String!
+  ){
+    login(
+      account: $account
+      password: $password
+    ) {
+      token
+    }
+  }
+`
+      // account: "andre"
+      // password: "Cep10andre"
+const styles= {
+  input: {
+    margin: '0 0 17px 0',
+    padding: '27px 0 0 0',
+    width: '100%',
+  }
+}
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -42,17 +69,32 @@ class LoginPage extends React.Component {
       700
     );
   }
+
+  onSubmit = (data, update) => {
+    console.log('loginData', data)
+    update({
+      variables: {
+        account: data.account,
+        password: data.password,
+      }
+    })
+  }
+
+  validate = values => {
+    const errors ={}
+    if (!values.account) {
+      errors.username = 'Required';
+    }
+    if (!values.password) {
+      errors.password = 'Required';
+    }
+    return errors;
+  }
+
   render() {
     const { classes, ...rest } = this.props;
     return (
       <div>
-        <Header
-          absolute
-          color="transparent"
-          brand="NTU CEP"
-          rightLinks={<HeaderLinks />}
-          {...rest}
-        />
         <div
           className={classes.pageHeader}
           style={{
@@ -65,96 +107,76 @@ class LoginPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-                  <form className={classes.form}>
-                    <CardHeader color="primary" className={classes.cardHeader}>
-                      <h4>Login</h4>
-                      <div className={classes.socialLine}>
-                        {/* <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-twitter"} />
-                        </Button> */}
-                        {/* <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-facebook"} />
-                        </Button> */}
-                        {/* <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-google-plus-g"} />
-                        </Button> */}
-                      </div>
-                    </CardHeader>
-                    <p className={classes.divider}>STAFF ID</p>
-                    <CardBody>
-                      <CustomInput
-                        labelText="Account..."
-                        id="first"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "text",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <People className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
+                  <Mutation mutation={LOGIN}>
+                    {update => (
+                      <Form
+                        onSubmit={data => this.onSubmit(data, update)}
+                        validate={this.validate}
+                        initialValues={({account: ''})}
+                        render={({ handleSubmit, form, submitting, pristine, values}) => (
+                          <form className={classes.form} onSubmit={handleSubmit}>
+                            <CardHeader color="primary" className={classes.cardHeader}>
+                              <h4>Login</h4>
+                            </CardHeader>
+                            <p className={classes.divider}>STAFF ID</p>
+                            <CardBody>
+                              <Field
+                                name="account"
+                                component={Input}
+                                type="text"
+                                endAdornment={
+                                  <InputAdornment position="end">
+                                    <People className={classes.inputIconsColor} />
+                                  </InputAdornment>
+                                }
+                                style={styles.input}
+                                placeholder="Account..."
+                              />
+                              <Field
+                                name="password"
+                                component={Input}
+                                type="password"
+                                endAdornment={
+                                  <InputAdornment position="end">
+                                    <Icon className={classes.inputIconsColor}>
+                                      lock_outline
+                                    </Icon>
+                                  </InputAdornment>
+                                }
+                                style={styles.input}
+                                placeholder="password"
+                              />
+                              {/* <Field
+                                name="passowrd"
+                                labelText="Password"
+                                id="pass"
+                                formControlProps={{
+                                  fullWidth: true
+                                }}
+                                inputProps={{
+                                  type: "password",
+                                  endAdornment: (
+                                    <InputAdornment position="end">
+                                      <Icon className={classes.inputIconsColor}>
+                                        lock_outline
+                                      </Icon>
+                                    </InputAdornment>
+                                  ),
+                                  autoComplete: "off"
+                                }}
+                                component={CustomInput}
+                              /> */}
+                            </CardBody>
+                            <CardFooter className={classes.cardFooter}>
+                              <Button simple color="primary" size="lg" type="submit">
+                                LOGIN
+                              </Button>
+                            </CardFooter>
+                          </form>
+                        )}
                       />
-                      {/* <CustomInput
-                        labelText="Email..."
-                        id="email"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "email",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Email className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
-                      /> */}
-                      <CustomInput
-                        labelText="Password"
-                        id="pass"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "password",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Icon className={classes.inputIconsColor}>
-                                lock_outline
-                              </Icon>
-                            </InputAdornment>
-                          ),
-                          autoComplete: "off"
-                        }}
-                      />
-                    </CardBody>
-                    <CardFooter className={classes.cardFooter}>
-                      <Button simple color="primary" size="lg">
-                        LOGIN
-                      </Button>
-                    </CardFooter>
-                  </form>
+                    )}
+                  </Mutation>
                 </Card>
               </GridItem>
             </GridContainer>

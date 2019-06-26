@@ -13,6 +13,7 @@ import LandingPage from "views/LandingPage/LandingPage.jsx";
 import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
 import Header from "components/Header/Header.jsx";
+import HeaderLinks from './components/Header/HeaderLinks.jsx';
 
 const client = new ApolloClient({ uri: "http://localhost:4000"});
 
@@ -23,13 +24,20 @@ const wrappedApp = (
       <Router history={hist}>
       <Header
           color="white"
-          brand="Material Kit React"
+          brand="NTU CEP"
           fixed
           changeColorOnScroll={{
             height: 400,
             color: "white"
           }}
+          rightLinks={<HeaderLinks />}
         />
+                {/* <Header
+          absolute
+          color="transparent"
+          brand="NTU CEP"
+          rightLinks={<HeaderLinks />}
+          {...rest} */}
         <Switch>
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/profile-page" component={ProfilePage} />
