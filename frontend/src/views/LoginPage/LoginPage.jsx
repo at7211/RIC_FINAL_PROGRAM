@@ -49,7 +49,7 @@ class LoginPage extends React.Component {
         <Header
           absolute
           color="transparent"
-          brand="Material Kit React"
+          brand="NTU CEP"
           rightLinks={<HeaderLinks />}
           {...rest}
         />
@@ -69,7 +69,7 @@ class LoginPage extends React.Component {
                     <CardHeader color="primary" className={classes.cardHeader}>
                       <h4>Login</h4>
                       <div className={classes.socialLine}>
-                        <Button
+                        {/* <Button
                           justIcon
                           href="#pablo"
                           target="_blank"
@@ -77,8 +77,8 @@ class LoginPage extends React.Component {
                           onClick={e => e.preventDefault()}
                         >
                           <i className={"fab fa-twitter"} />
-                        </Button>
-                        <Button
+                        </Button> */}
+                        {/* <Button
                           justIcon
                           href="#pablo"
                           target="_blank"
@@ -86,8 +86,8 @@ class LoginPage extends React.Component {
                           onClick={e => e.preventDefault()}
                         >
                           <i className={"fab fa-facebook"} />
-                        </Button>
-                        <Button
+                        </Button> */}
+                        {/* <Button
                           justIcon
                           href="#pablo"
                           target="_blank"
@@ -95,13 +95,13 @@ class LoginPage extends React.Component {
                           onClick={e => e.preventDefault()}
                         >
                           <i className={"fab fa-google-plus-g"} />
-                        </Button>
+                        </Button> */}
                       </div>
                     </CardHeader>
-                    <p className={classes.divider}>Or Be Classical</p>
+                    <p className={classes.divider}>STAFF ID</p>
                     <CardBody>
                       <CustomInput
-                        labelText="First Name..."
+                        labelText="Account..."
                         id="first"
                         formControlProps={{
                           fullWidth: true
@@ -115,7 +115,7 @@ class LoginPage extends React.Component {
                           )
                         }}
                       />
-                      <CustomInput
+                      {/* <CustomInput
                         labelText="Email..."
                         id="email"
                         formControlProps={{
@@ -129,7 +129,7 @@ class LoginPage extends React.Component {
                             </InputAdornment>
                           )
                         }}
-                      />
+                      /> */}
                       <CustomInput
                         labelText="Password"
                         id="pass"
@@ -151,7 +151,7 @@ class LoginPage extends React.Component {
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
                       <Button simple color="primary" size="lg">
-                        Get started
+                        LOGIN
                       </Button>
                     </CardFooter>
                   </form>
