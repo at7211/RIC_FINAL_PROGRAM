@@ -13,6 +13,18 @@ const headerLinksStyle = theme => ({
     paddingBottom: "0",
     color: "inherit"
   },
+  butt:{
+fontSize: "15.5px",
+float:"left",
+lineHeight:"1.8",
+"&:hover,&:focus": {
+  boxShadow:
+        "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(33, 33, 33, 0.4)",
+  color: "inherit",
+  background: "rgba(200, 200, 200, 0.2)"
+},
+  },
+  
   listItem: {
     float: "left",
     color: "inherit",
@@ -41,12 +53,12 @@ const headerLinksStyle = theme => ({
     position: "relative",
     padding: "0.9375rem",
     fontWeight: "400",
-    fontSize: "12px",
+    fontSize: "15px",
     textTransform: "uppercase",
     borderRadius: "3px",
     lineHeight: "20px",
     textDecoration: "none",
-    margin: "0px",
+    marginRight: "23px",
     display: "inline-flex",
     "&:hover,&:focus": {
       color: "inherit",
