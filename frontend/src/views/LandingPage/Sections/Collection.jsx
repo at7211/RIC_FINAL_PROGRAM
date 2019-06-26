@@ -1,20 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import Radium from 'radium';
 import '../Collection.css';
-
-const appear = Radium.keyframes({
-  '0%': {opacity: 0},
-  '100%': {opacity: 1},
-}, 'pulse');
-
-const appearVideo = Radium.keyframes({
-  '0%': {opacity: 0},
-  '90%': {opacity: 0},
-  '100%': {opacity: 0.1},
-}, 'pulse');
-
 
 const styles = {
   wrapper:{
@@ -24,26 +11,24 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     padding:' 200px 0 0 0',
-    animationName: appear,
-    animationDuration: '1s',
-    animationFillMode: 'forwards',
   },
   h1:{
-    animationName: appear,
     animationDuration: '1s',
     animationFillMode: 'forwards',
   },
   backgroundVideo: {
+    display: 'none',
     position: 'fixed',
-    width: '100%',
-    height: '100%',
+    width: '100vw',
+    height: '100vh',
     margin: 0,
     padding: 0,
+    top: 0,
+    left: 0,
+    right: 0,
     zIndex: -1,
+    opacity: 0.1,
     filter: 'grayscale(80%)',
-    animationName: appearVideo,
-    animationDuration: '4000ms',
-    animationFillMode: 'forwards',
   },
   timelineHeader: {
     display: 'flex',
@@ -54,9 +39,6 @@ const styles = {
     justifyContent: 'initial',
     alignItems: 'center',
     margin: '0 0 80px 0',
-    animationName: appear,
-    animationDuration: '1s',
-    animationFillMode: 'forwards',
   },
   timeline: {
     display: 'flex',
@@ -66,9 +48,6 @@ const styles = {
     height: '100%',
     maxWidth: 700,
     position: 'relative',
-    animationName: appear,
-    animationDuration: '1s',
-    animationFillMode: 'forwards',
   },
   line: {
     position: 'absolute',
@@ -77,9 +56,6 @@ const styles = {
     height: '100%',
     marginLeft: -1,
     backgroundColor: 'black', //shouldchange
-    animationName: appear,
-    animationDuration: '1s',
-    animationFillMode: 'forwards',
   },
   timelineItem: {
     padding: '40px 0',
@@ -91,11 +67,8 @@ const styles = {
     display: 'flex',
     position: 'relative',
     transform: 'translateY(-80px)',
-    animationName: appear,
-    animationDuration: '1s',
-    animationFillMode: 'forwards',
-  },
-  timelineImg: {
+
+  },  timelineImg: {
     maxWidth: '100%',
     boxShadow: '0 10px 15px rgba(0, 0, 0, 0.4)',
   },
@@ -112,9 +85,6 @@ const styles = {
     padding: '0 0 0 15px',
     opacity: 0,
     right: 'calc(-100% - 56px)',
-    animationName: appear,
-    animationDuration: '1s',
-    animationFillMode: 'forwards',
   },
   timelineTitle__active: {
     top: '50%',
@@ -129,9 +99,6 @@ const styles = {
     padding: '0 10px',
     boxSizing: 'border-box',
     fontFamily: '"Pathway Gothic One", sans-serif',
-    animationName: appear,
-    animationDuration: '1s',
-    animationFillMode: 'forwards',
   },
   timelineContentDesc: {
     color: 'black',
@@ -166,20 +133,39 @@ class Collection extends PureComponent {
           content: 'Timing是一個致力於傳承受到街舞文化的街舞媒體。以易理解的原創性內容，受到廣大街舞圈的支持，也曾和台灣吧、hornet、台中歌劇院週刊等單位合作過，幫助更多一般大眾理解街舞文化。主要於團隊中擔當主理人，以及部分的影片剪輯與動畫後製',
         }
       ],
+      show: false,
     }
   }
 
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  compoenntWillMount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = () => {
+    if(window.pageYOffset > 400){
+      this.setState({ show: true })
+    } else {
+      this.setState({ show: false})
+    }
+  }
 
   render() {
-    const { items } = this.state;
+    const { items, show } = this.state;
 
     return (
       <Fragment>
         <div style={styles.wrapper}>
-          <iframe
-              style={styles.backgroundVideo}
-              width="560"
-              height="315"
+            <iframe
+              style={show ? {
+                ...styles.backgroundVideo,
+                display: 'block',
+              }: styles.backgroundVideo}
+              width="1120"
+              height="630"
               src={items[0].link}
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -220,4 +206,4 @@ class Collection extends PureComponent {
   }
 }
 
-export default Radium(Collection);
+export default Collection;

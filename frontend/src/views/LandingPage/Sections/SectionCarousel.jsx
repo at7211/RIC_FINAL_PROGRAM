@@ -29,16 +29,6 @@ class SectionCarousel extends React.Component {
       autoplay: true
     };
 
-    const fakeData = [{
-      id: 1,
-      link: 'https://i0.wp.com/cep.ntu.edu.tw/wp-content/uploads/2019/06/創12審核正式-01.png?fit=1024%2C724&ssl=1',
-      describe: '創12錄取名單',
-    }, {
-      id: 2,
-      link: 'https://i2.wp.com/cep.ntu.edu.tw/wp-content/uploads/2019/04/活動通說明會_gif.gif?fit=1080%2C540&ssl=1',
-      describe: '2019創創週《創闖看!》系列活動',
-    }]
-
     const ACTIVITIES = gql`
       query {
         activities {
@@ -59,7 +49,7 @@ class SectionCarousel extends React.Component {
               if (loading) return <p>loading....</p>;
               if (error) return <p>error:(</p>;
 
-              const imgElements = fakeData.map((img) => (
+              const imgElements = data.activities.map((img) => (
                 <div key={img.id}>
                   <img
                     src={img.link}

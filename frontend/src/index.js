@@ -14,15 +14,11 @@ import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
 import Header from "components/Header/Header.jsx";
 
-import { StyleRoot } from 'radium';
-
-
 const client = new ApolloClient({ uri: "http://localhost:4000"});
 
 let hist = createBrowserHistory();
 
 const wrappedApp = (
-  <StyleRoot>
     <ApolloProvider client={client}>
       <Router history={hist}>
       <Header
@@ -42,8 +38,6 @@ const wrappedApp = (
         </Switch>
       </Router>
     </ApolloProvider>
-  </StyleRoot>
-
 );
 
 ReactDOM.render(
