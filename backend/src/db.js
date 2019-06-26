@@ -13,10 +13,10 @@ const activities = [{
   }]
 
 const users = [{
-  id: 50,
-  account: "test",
-  email: "asdsad",
-  password: "qwewqe",
+  id: 1,
+  account: "andre",
+  email: "at7211@gmail.com",
+  password: "$2b$04$xk1YDg.alPqUdZLZh0TBoeu.jLu5xCoaeqXIMLJnJwirABUXaEPSW",
 }]
 
 const db = {
