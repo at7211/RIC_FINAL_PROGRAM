@@ -34,13 +34,30 @@ function HeaderLinks({ ...props }) {
             color: "transparent"
           }}
           dropdownList={[
-            <Link  className={classes.dropdownLink}>
-              學程簡介
-            </Link>,
+            <ListItem className={classes.listItem}>
+              <CustomDropdown
+                noLiPadding
+                buttonText="學程簡介"
+                insideDropdown
+                right
+                buttonProps={{
+                  className: classes.navLink,
+                  color: "transparent"
+                }}
+                dropdownList={[
+                  <Link  className={classes.dropdownLink}>
+                    學程簡介
+                  </Link>,
+                  <Link to="/login-page" className={classes.dropdownLink}>
+                    創創11TH團隊
+                  </Link>,
+                ]}
+              />
+            </ListItem>,
             <Link to="/login-page" className={classes.dropdownLink}>
             創創11TH團隊
             </Link>,
-              <Link to="/login-page" className={classes.dropdownLink}>
+            <Link to="/login-page" className={classes.dropdownLink}>
               創創Q&A
             </Link>,
             // <a
@@ -50,8 +67,6 @@ function HeaderLinks({ ...props }) {
             // >
             //   Documentation
             // </a>
-
-
           ]}
         />
       </ListItem>

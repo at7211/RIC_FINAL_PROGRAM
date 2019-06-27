@@ -20,6 +20,15 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import customDropdownStyle from "assets/jss/material-kit-react/components/customDropdownStyle.jsx";
 
+const styles={
+  background: {
+    position: 'fixed',
+    top: -8,
+    left: 57,
+  }
+}
+
+
 class CustomDropdown extends React.Component {
   constructor(props) {
     super(props);
@@ -55,8 +64,10 @@ class CustomDropdown extends React.Component {
       caret,
       hoverColor,
       left,
+      right,
       rtlActive,
-      noLiPadding
+      noLiPadding,
+      insideDropdown,
     } = this.props;
     const caretClasses = classNames({
       [classes.caret]: true,
@@ -95,78 +106,81 @@ class CustomDropdown extends React.Component {
               this.anchorEl = node;
             }}
             onClick={this.handleClick}
+            onMouseOver={insideDropdown ? this.handleClick : null}
           >
             {icon}
             {buttonText !== undefined ? buttonText : null}
             {caret ? <b className={caretClasses} /> : null}
           </Button>
         </div>
-        <Popper
-          open={open}
-          anchorEl={this.anchorEl}
-          transition
-          disablePortal
-          placement={
-            dropup
-              ? left
-                ? "top-start"
-                : "top"
-              : left
-              ? "bottom-start"
-              : "bottom"
-          }
-          className={classNames({
-            [classes.popperClose]: !open,
-            [classes.popperResponsive]: true
-          })}
-        >
-          {() => (
-            <Grow
-              in={open}
-              id="menu-list"
-              style={
-                dropup
-                  ? { transformOrigin: "0 100% 0" }
-                  : { transformOrigin: "0 0 0" }
-              }
-            >
-              <Paper className={classes.dropdown}>
-                <ClickAwayListener onClickAway={this.handleCloseAway}>
-                  <MenuList role="menu" className={classes.menuList}>
-                    {dropdownHeader !== undefined ? (
-                      <MenuItem
-                        onClick={() => this.handleClose(dropdownHeader)}
-                        className={classes.dropdownHeader}
-                      >
-                        {dropdownHeader}
-                      </MenuItem>
-                    ) : null}
-                    {dropdownList.map((prop, key) => {
-                      if (prop.divider) {
-                        return (
-                          <Divider
-                            key={key}
-                            onClick={() => this.handleClose("divider")}
-                            className={classes.dropdownDividerItem}
-                          />
-                        );
-                      }
-                      return (
+        <div style={insideDropdown ? styles.background : null}>
+          <Popper
+            open={open}
+            anchorEl={this.anchorEl}
+            transition
+            disablePortal
+            placement={
+              dropup
+                ? left
+                  ? "top-start"
+                  : "top"
+                : right
+                ? "right-start"
+                : "bottom"
+            }
+            className={classNames({
+              [classes.popperClose]: !open,
+              [classes.popperResponsive]: true
+            })}
+          >
+            {() => (
+              <Grow
+                in={open}
+                id="menu-list"
+                style={
+                  dropup
+                    ? { transformOrigin: "0 100% 0" }
+                    : { transformOrigin: "0 0 0" }
+                }
+              >
+                <Paper className={classes.dropdown}>
+                  <ClickAwayListener onClickAway={this.handleCloseAway}>
+                    <MenuList role="menu" className={classes.menuList}>
+                      {dropdownHeader !== undefined ? (
                         <MenuItem
-                          key={key}
-                          onClick={() => this.handleClose(prop)}
-                          className={dropdownItem}
+                          onHover={() => this.handleClose(dropdownHeader)}
+                          className={classes.dropdownHeader}
                         >
-                          {prop}
+                          {dropdownHeader}
                         </MenuItem>
-                      );
-                    })}
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
+                      ) : null}
+                      {dropdownList.map((prop, key) => {
+                        if (prop.divider) {
+                          return (
+                            <Divider
+                              key={key}
+                              onClick={() => this.handleClose("divider")}
+                              className={classes.dropdownDividerItem}
+                            />
+                          );
+                        }
+                        return (
+                          <MenuItem
+                            key={key}
+                            onClick={() => this.handleClose(prop)}
+                            className={dropdownItem}
+                          >
+                            {prop}
+                          </MenuItem>
+                        );
+                      })}
+                    </MenuList>
+                  </ClickAwayListener>
+                </Paper>
+              </Grow>
+            )}
+          </Popper>
+        </div>
       </div>
     );
   }
@@ -197,6 +211,8 @@ CustomDropdown.propTypes = {
   rtlActive: PropTypes.bool,
   caret: PropTypes.bool,
   left: PropTypes.bool,
+  right: PropTypes.bool,
+  insideDropdown: PropTypes.bool,
   noLiPadding: PropTypes.bool,
   // function that retuns the selected item
   onClick: PropTypes.func
