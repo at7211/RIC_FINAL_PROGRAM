@@ -4,6 +4,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
+import{Dropdown} from 'reactstrap';
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -34,32 +35,21 @@ function HeaderLinks({ ...props }) {
             color: "transparent"
           }}
           dropdownList={[
-            <ListItem className={classes.listItem}>
-              <CustomDropdown
-                noLiPadding
-                buttonText="學程簡介"
-                insideDropdown
-                right
-                buttonProps={{
-                  className: classes.navLink,
-                  color: "transparent"
-                }}
-                dropdownList={[
-                  <Link  className={classes.dropdownLink}>
-                    學程簡介
-                  </Link>,
-                  <Link to="/login-page" className={classes.dropdownLink}>
-                    創創11TH團隊
-                  </Link>,
-                ]}
-              />
-            </ListItem>,
+
+            
+            
+            <Link  className={classes.dropdownLink}>
+              學程簡介                   
+             
+            </Link>,
+                     
+
             <Link to="/login-page" className={classes.dropdownLink}>
             創創11TH團隊
-            </Link>,
-            <Link to="/login-page" className={classes.dropdownLink}>
-              創創Q&A
-            </Link>,
+          </Link>,
+           <Link to="/login-page" className={classes.dropdownLink}>
+           創創Q&A
+         </Link>,
             // <a
             //   href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
             //   target="_blank"
@@ -67,6 +57,8 @@ function HeaderLinks({ ...props }) {
             // >
             //   Documentation
             // </a>
+           
+            
           ]}
         />
       </ListItem>
@@ -84,7 +76,7 @@ function HeaderLinks({ ...props }) {
             <Link to="/" className={classes.dropdownLink}>
               All components
             </Link>,
-
+          
           ]}
         />
       </ListItem> */}
@@ -101,13 +93,13 @@ function HeaderLinks({ ...props }) {
             <Link to="/" className={classes.dropdownLink}>
               All components
             </Link>,
-
+          
           ]}
         />
       </ListItem> */}
-
+     
       <ListItem className={classes.listItem}>
-
+        
         <CustomDropdown
           noLiPadding
           buttonText="申請學程"
@@ -119,12 +111,12 @@ function HeaderLinks({ ...props }) {
             <Link to="/" className={classes.dropdownLink}>
               學程常用表格
             </Link>,
-
+           
           ]}
         />
       </ListItem>
-
-
+      
+     
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
@@ -140,12 +132,12 @@ function HeaderLinks({ ...props }) {
              <Link to="/" className={classes.dropdownLink}>
              友站分享
            </Link>,
-
+           
           ]}
         />
-
+       
       </ListItem>
-
+      
       {/* <ListItem className={classes.listItem}>
         <Button
           href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
@@ -157,7 +149,7 @@ function HeaderLinks({ ...props }) {
         </Button>
       </ListItem> */}
       {/* <ListItem className={classes.listItem}>
-
+       
         <Tooltip
           id="instagram-twitter"
           title="Follow us on twitter"

@@ -7,11 +7,9 @@ import classNames from "classnames";
 import withStyles from "@material-ui/core/styles/withStyles";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import Input from "@material-ui/core/Input"
+import Input from "@material-ui/core/Input";
 
 import customInputStyle from "assets/jss/material-kit-react/components/customInputStyle.jsx";
-import { TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
-
 
 function CustomInput({ ...props }) {
   const {
