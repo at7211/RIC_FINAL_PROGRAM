@@ -12,42 +12,25 @@ import Components from "views/Components/Components.jsx";
 import LandingPage from "views/LandingPage/LandingPage.jsx";
 import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
-import Header from "components/Header/Header.jsx";
-import HeaderLinks from './components/Header/HeaderLinks.jsx';
+import Activities from "views/Activities/Activities";
 
-const client = new ApolloClient({ uri: "http://localhost:4000"});
+
+const client = new ApolloClient({ uri: "http://localhost:4001"});
 
 let hist = createBrowserHistory();
 
 const wrappedApp = (
-    <ApolloProvider client={client}>
-      <Router history={hist}>
-      <Header
-          color="white"
-          brand="NTU CEP"
-          fixed
-          changeColorOnScroll={{
-            height: 400,
-            color: "white"
-          }}
-          rightLinks={<HeaderLinks />}
-        />
-                {/* <Header
-          absolute
-          color="transparent"
-          brand="NTU CEP"
-          rightLinks={<HeaderLinks />}
-          {...rest} */}
-        <Switch>
-          <Route path="/landing-page" component={LandingPage} />
-          <Route path="/profile-page" component={ProfilePage} />
-          <Route path="/login-page" component={LoginPage} />
-          <Route path="/" component={Components} />
-        </Switch>
-      </Router>
-    </ApolloProvider>
+  <ApolloProvider client={client}>
+    <Router history={hist}>
+      <Switch>
+        <Route path="/landing-page" component={LandingPage} />
+        <Route path="/profile-page" component={ProfilePage} />
+        <Route path="/login-page" component={LoginPage} />
+        <Route path="/act" component={Activities} />
+        <Route path="/" component={Components} />
+      </Switch>
+    </Router>
+  </ApolloProvider>
 );
 
-ReactDOM.render(
-  wrappedApp, document.getElementById("root")
-  );
+ReactDOM.render(wrappedApp, document.getElementById("root"));
