@@ -25,7 +25,7 @@ import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 import image from "assets/img/bg7.jpg";
 
-class LoginPage extends React.Component {
+class Activities extends React.Component {
   constructor(props) {
     super(props);
     // we use this to make the card to appear after the page has been rendered
@@ -56,7 +56,7 @@ class LoginPage extends React.Component {
         <div
           className={classes.pageHeader}
           style={{
-            backgroundImage: "url(" + image + ")",
+            // backgroundImage: "url(" + image + ")",
             backgroundSize: "cover",
             backgroundPosition: "top center"
           }}
@@ -64,42 +64,16 @@ class LoginPage extends React.Component {
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
-                <Card className={classes[this.state.cardAnimaton]}>
-                  <form className={classes.form}>
-                    <CardHeader color="primary" className={classes.cardHeader}>
+                {/* <Card className={classes[this.state.cardAnimaton]}> */}
+                  {/* <form className={classes.form}> */}
+                    {/* <CardHeader color="primary" className={classes.cardHeader}>
                       <h4>Login</h4>
                       <div className={classes.socialLine}>
-                        {/* <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-twitter"} />
-                        </Button> */}
-                        {/* <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-facebook"} />
-                        </Button> */}
-                        {/* <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-google-plus-g"} />
-                        </Button> */}
+                      
                       </div>
-                    </CardHeader>
-                    <p className={classes.divider}>STAFF ID</p>
-                    <CardBody>
+                    </CardHeader> */}
+                    {/* <p className={classes.divider}>STAFF ID</p> */}
+                    {/* <CardBody>
                       <CustomInput
                         labelText="Account..."
                         id="first"
@@ -114,23 +88,9 @@ class LoginPage extends React.Component {
                             </InputAdornment>
                           )
                         }}
-                      />
-                      {/* <CustomInput
-                        labelText="Email..."
-                        id="email"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "email",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Email className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
                       /> */}
-                      <CustomInput
+                    
+                      {/* <CustomInput
                         labelText="Password"
                         id="pass"
                         formControlProps={{
@@ -147,15 +107,15 @@ class LoginPage extends React.Component {
                           ),
                           autoComplete: "off"
                         }}
-                      />
-                    </CardBody>
-                    <CardFooter className={classes.cardFooter}>
+                      /> */}
+                    {/* </CardBody> */}
+                    {/* <CardFooter className={classes.cardFooter}>
                       <Button simple color="primary" size="lg">
                         LOGIN
-                      </Button>
-                    </CardFooter>
-                  </form>
-                </Card>
+                      </Button> */}
+                    {/* </CardFooter> */}
+                  {/* </form>
+                </Card> */}
               </GridItem>
             </GridContainer>
           </div>
@@ -166,8 +126,8 @@ class LoginPage extends React.Component {
   }
 }
 
-LoginPage.propTypes = {
+Activities.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(loginPageStyle)(LoginPage);
+export default withStyles(loginPageStyle)(Activities);
