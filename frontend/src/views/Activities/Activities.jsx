@@ -96,7 +96,7 @@ class Activities extends React.Component {
           }}
         >
           {/* 第一個container */}
-          <div className={classes.container}>
+          <div className={classes.container3}>
             {fakedata1.map(post =>
               <div className={classes.marginstyle}>
                 < iframe width="300"
