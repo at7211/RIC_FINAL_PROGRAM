@@ -4,11 +4,35 @@ const signupPageStyle = {
   container: {
     ...container,
     zIndex: "2",
+    maxWidth:"100%",
     position: "relative",
-    paddingTop: "20vh",
+   paddingTop: "80px",
     color: "#FFFFFF",
-    paddingBottom: "200px"
+
+    paddingBottom: "0px",
+    display:"flex",
+    
   },
+  container2: {
+    ...container,
+    zIndex: "2",
+    maxWidth:"100%",
+    position: "relative",
+   paddingTop: "0px",
+    color: "#FFFFFF",
+
+    paddingBottom: "50px",
+    display:"flex",
+    
+  },
+  marginstyle:{
+  marginLeft:"30px",
+  marginRight:"30px",
+  marginTop :"30px",
+  marginBottom:"30px",
+  
+  },
+  
   cardHidden: {
     opacity: "0",
     transform: "translate3d(0, -60px, 0)"
