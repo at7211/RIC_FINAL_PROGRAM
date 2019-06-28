@@ -4,16 +4,102 @@ const signupPageStyle = {
   container: {
     ...container,
     zIndex: "2",
+    // maxWidth:"100%",
     position: "relative",
-    paddingTop: "20vh",
+    //  paddingTop: "80px",
+    paddingTop: "150px",
+
     color: "#FFFFFF",
-    paddingBottom: "200px"
+    paddingBottom: "0px",
+    // display:"flex",
+
+  },
+  container3: {
+    ...container,
+    zIndex: "2",
+    maxWidth: "100%",
+    position: "relative",
+    paddingTop: "80px",
+    color: "#FFFFFF",
+    paddingBottom: "0px",
+    display: "flex",
+
+  },
+  container2: {
+    ...container,
+    zIndex: "2",
+    maxWidth: "100%",
+    position: "relative",
+    paddingTop: "0px",
+    color: "#FFFFFF",
+
+    paddingBottom: "50px",
+    display: "flex",
+
+  },
+  con3: {
+    width: "780px",
+    height: "2500px",
+    float: "left",
+    marginTop: "100px",
+    marginLeft: "150px"
+  },
+  con4: {
+    height: "2500px",
+
+    width: "250px",
+
+    float: "right",
+    marginTop: "100px",
+    marginRight: "40px"
+
+  },
+  pic: {
+    marginleft: "40px"
+  },
+  actnews: {
+    width: "400px",
+    marginLeft: "230px"
+  },
+  actarticles: {
+    marginTop: "30px",
+    marginBottom: "30px"
+  },
+  marginstyle: {
+    marginLeft: "30px",
+    marginRight: "30px",
+    marginTop: "30px",
+    marginBottom: "30px",
+
+  },
+  alsolike: {
+    marginRight: "20px"
+  },
+  arctitle:{
+  marginTop:"20px",
+  marginBottom:"20px"
+  },
+  contactus:{
+    paddingTop:"10px",
+    paddingBottom:"20px",
+    width:"500px",
+    height:"300px",
+    textAlign:"center" ,
+    color: " black",
+    backgroundColor:"#DDDDDD",
+    borderRadius:"5px"
+  },
+  conmail:{
+ marginTop:"30px",
+ marginBottom:"30px",
+ fontWeight:"30"
   },
   cardHidden: {
     opacity: "0",
     transform: "translate3d(0, -60px, 0)"
   },
   pageHeader: {
+    // oberflow:"auto",
     minHeight: "100vh",
     height: "auto",
     display: "inherit",
@@ -22,6 +108,7 @@ const signupPageStyle = {
     padding: "0",
     border: "0",
     alignItems: "center",
+
     "&:before": {
       background: "rgba(0, 0, 0, 0.5)"
     },
