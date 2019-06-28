@@ -12,6 +12,12 @@ import Components from "views/Components/Components.jsx";
 import LandingPage from "views/LandingPage/LandingPage.jsx";
 import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
+import Activities from "views/Activities/Activities";
+import Actpage from "views/Actpage/Actpage";
+import Contactus from "views/Contactus/Contactus";
+
+
+
 
 const client = new ApolloClient({ uri: "http://localhost:4001"});
 
@@ -24,6 +30,9 @@ const wrappedApp = (
         <Route path="/landing-page" component={LandingPage} />
         <Route path="/profile-page" component={ProfilePage} />
         <Route path="/login-page" component={LoginPage} />
+        <Route path="/act" component={Activities} />
+        <Route path="/act_1" component={Actpage} />
+        <Route path="/contactus" component={Contactus} />
         <Route path="/" component={Components} />
       </Switch>
     </Router>
