@@ -16,8 +16,9 @@ const typeDefs = gql`
 
   type Mutation {
     "註冊。 email 與 passwrod 必填"
-    signUp(account: String, email: String!, password: String!): User
+    signUp (account: String, email: String!, password: String!): User
     login (account: String!, password: String!): Token
+    programApply (name: String!, studentID: String!, department: String!, phone: String!, mobile: String!, email: String!, address: String!): ProgramApplyUser
   }
 
   type Activity {
@@ -33,6 +34,17 @@ const typeDefs = gql`
     account: String!
     password: String!
     email: String!
+  }
+
+  type ProgramApplyUser {
+    id: ID!
+    name: String!
+    studentID: String!
+    department: String!
+    phone: String!
+    mobile: String!
+    email: String!
+    address: String!
   }
 
   type Token {
