@@ -6,11 +6,30 @@ const activities = [{
     date: '2019-04-02'
   }, {
     id: 2,
-    link: 'https://i0.wp.com/cep.ntu.edu.tw/wp-content/uploads/2019/06/創12審核正式-01.png?fit=1024%2C724&ssl=1',
-    title: '創13錄取名單',
+    link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/臉書DDAY2_FB01-1024x576.jpg',
+    title: 'D-Day',
     content: 'test',
     date: '2019-04-02'
-  }]
+  }, {
+    id: 2,
+    link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/04/官網_FB-1024x683.png',
+    title: '2019創創週《創闖看!》系列活動',
+    content: 'test',
+    date: '2019-04-02'
+  }, {
+    id: 2,
+    link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/藝術創作-724x1024.jpg',
+    title: '《譯作》藝術創作期末成果展',
+    content: 'test',
+    date: '2019-04-02'
+  }, {
+    id: 2,
+    link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/qa-05-1024x1024.jpg',
+    title: 'NTUCEP Q&A',
+    content: 'test',
+    date: '2019-04-02'
+  }
+]
 
 const users = [{
   id: 1,
