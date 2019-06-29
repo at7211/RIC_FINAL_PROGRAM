@@ -5,6 +5,8 @@ import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
+
 
 import { Form, Field } from 'react-final-form';
 import { Input, TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
@@ -95,7 +97,11 @@ function FormPage() {
             後台介面
           </Typography>
           <ul>
-            <li>發佈文章</li>
+            <li>
+              <Link to="/post">
+                發佈文章
+              </Link>
+            </li>
             <li>輪播圖排程</li>
           </ul>
         </Paper>

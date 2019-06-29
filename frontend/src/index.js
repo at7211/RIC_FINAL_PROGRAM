@@ -17,7 +17,7 @@ import FormPage2 from './views/FormPage/FormPage2.jsx';
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from './components/Header/HeaderLinks.jsx';
 import Admin from './views/AdminPage/AdminPage.jsx';
-
+// import SimpleEditor from './views/FormPage/SimpleEditor.jsx';
 
 const client = new ApolloClient({ uri: "http://localhost:4000"});
 
@@ -46,6 +46,7 @@ const wrappedApp = (
           <Route path="/login-page" component={LoginPage} />
           <Route path='/form-page' component={FormPage} />
           <Route path='/form-page2' component={FormPage2} />
+          {/* <Route path='/post' component={SimpleEditor} /> */}
           <Route path='/admin' component={Admin} />
           <Route path="/" component={Components} />
         </Switch>
