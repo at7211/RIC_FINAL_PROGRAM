@@ -19,6 +19,7 @@ import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
+import { Link, hashHistory } from "react-router";
 
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
@@ -28,6 +29,8 @@ import { Form, Field } from 'react-final-form';
 import { Input, TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+
+import history from '../../history.js';
 
 const LOGIN = gql`
   mutation login(
@@ -77,7 +80,7 @@ class LoginPage extends React.Component {
         account: data.account,
         password: data.password,
       }
-    })
+    }).then(() => history.push('./admin'))
   }
 
   validate = values => {

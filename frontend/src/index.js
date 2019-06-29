@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import history from './history';
 
 import "assets/scss/material-kit-react.scss?v=1.7.0";
 
@@ -16,13 +16,14 @@ import FormPage from './views/FormPage/FormPage.jsx';
 import FormPage2 from './views/FormPage/FormPage2.jsx';
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from './components/Header/HeaderLinks.jsx';
+import Admin from './views/AdminPage/AdminPage.jsx';
 
 
 const client = new ApolloClient({ uri: "http://localhost:4000"});
 
 const wrappedApp = (
     <ApolloProvider client={client}>
-      <Router>
+      <Router history={history}>
         <Header
             color="white"
             brand="NTU CEP"
@@ -45,6 +46,7 @@ const wrappedApp = (
           <Route path="/login-page" component={LoginPage} />
           <Route path='/form-page' component={FormPage} />
           <Route path='/form-page2' component={FormPage2} />
+          <Route path='/admin' component={Admin} />
           <Route path="/" component={Components} />
         </Switch>
       </Router>
