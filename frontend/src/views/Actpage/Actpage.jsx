@@ -97,8 +97,6 @@ const recentarcticles = [{
   formalart:""
 }]
 
-const id=document.URL.split("/",5)[4]
-
 class Activities extends React.Component {
   constructor(props) {
     super(props);
@@ -106,28 +104,25 @@ class Activities extends React.Component {
     this.state = {
       views: 30,
       search: "search",
-      renderpost: [],
+      articles: [],
     };
   }
-  componentDidMount() {
-    this.setState({renderpost: articles.filter(post=>post.id==id)})
-  }
+  //WARNING! To be deprecated in React v17. Use componentDidMount instead.
 
   render() {
     const { classes, } = this.props;
-    const { renderpost } = this.state;
+    const { id } = this.props.match.params;
 
-
-console.log('renderPost', renderpost)
-// const actimage1=renderpost.filter(act=>act.actimage==="")
-// const actimage2=renderpost.filter(act=>act.actimage!=="")
+    console.log('articles', articles)
+// const actimage1=articles.filter(act=>act.actimage==="")
+// const actimage2=articles.filter(act=>act.actimage!=="")
 
 
 // console.log(actimage1)
 // console.log(actimage2)
 
-// console.log(renderpost)
-// console.log(renderpost[0].titleimage)
+// console.log(articles)
+// console.log(articles[id].titleimage)
  const recent=Math.floor(Math.random()*(3-0+1))+0;
     return (
 
@@ -153,15 +148,15 @@ console.log('renderPost', renderpost)
 
           >
           </iframe> */}
-          <img src={renderpost[0].titleimage}
+          <img src={articles[id].titleimage}
            width="770"
            height="450"></img>
 
 
           </div><br></br>
-          <h1 className={classes.bold}>{renderpost[0].title}</h1>
+          <h1 className={classes.bold}>{articles[id].title}</h1>
           <h6>_______________________________________________________________________________________________________________________________________________</h6>
-          <h6>{renderpost[0].tiltedate}</h6>
+          <h6>{articles[id].tiltedate}</h6>
           {/* < iframe width="770"
             height="350"
             src={image}
@@ -170,11 +165,11 @@ console.log('renderPost', renderpost)
             scrolling="no"
 
           ></iframe> */}
-           <img src={renderpost[0].actimage}
+           <img src={articles[id].actimage}
            width="770"
            height="650"></img>
-          <div className={classes.actnews}>{renderpost[0].summary}</div>
-          <div className={classes.actarticles}>{renderpost[0].formalart}</div>
+          <div className={classes.actnews}>{articles[id].summary}</div>
+          <div className={classes.actarticles}>{articles[id].formalart}</div>
           {/* <div className={classes.actarticles}>🎮創闖攻略🎮
 
             創創學程招生說明除了仔細講解創創學程可以學到什麼? 學程有哪些活動之外，<br></br>
