@@ -46,13 +46,6 @@ class Contact extends React.Component {
     const { classes, ...rest } = this.props;
     return (
       <div>
-        <Header
-          absolute
-          color="transparent"
-          brand="NTU CEP"
-          rightLinks={<HeaderLinks />}
-          {...rest}
-        />
         <div
           className={classes.pageHeader}
           style={{
@@ -136,7 +129,7 @@ class Contact extends React.Component {
                         formControlProps={{
                           fullWidth: true
                         }}
-                      
+
                         inputProps={{
                           type: "password",
                           endAdornment: (
