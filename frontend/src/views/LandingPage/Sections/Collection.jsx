@@ -66,7 +66,7 @@ const styles = {
     width: 2,
     height: '100%',
     marginLeft: -1,
-    backgroundColor: 'black',
+    backgroundColor: 'black', //shouldchange
   },
   timelineItem: {
     padding: '40px 0',
@@ -131,21 +131,43 @@ class Collection extends PureComponent {
     this.state = {
       items: [
           {
-            id: 0,
-            name: 'NTU COMPETITION',
-            date: '2017.2 - 2017.5',
-            // link: 'https://www.youtube.com/embed/kfzBM6ot9GI?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&modestbranding=0',
-            // link: 'https://www.youtube.com/embed/nTm2fBQ3W3w?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&modestbranding=0',
-            link: 'https://www.youtube.com/embed/LhPtKrkjVks?controls=0&showinfo=0&rel=0&autoplay=1&loop=0&modestbranding=0&iv_load_policy=3',
-            img: 'https://i.imgur.com/dnFtQI6.jpg',
-            content: '全台公認最具指標性排舞競賽，被視為街舞年度盛會。將近2200名現場觀眾、直播線上人數可達一萬四千人。於2017年擔任總召，期間帶領50位團隊成員，策劃初賽＆決賽流程，並成功接洽Calvin',
+          id: 0,
+          name: 'NTU CEP ',
+          link: 'https://www.youtube.com/embed/LhPtKrkjVks?controls=0&showinfo=0&rel=0&autoplay=1&loop=0&modestbranding=0&iv_load_policy=3',
+          img: '',
+          content: '',
         },{
           id: 1,
-          name: 'TIMING',
-          date: '2017.7 - 2019.1',
-          link: 'https://www.youtube.com/embed/IadwyRFYnF8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&modestbranding=0',
-          img: 'https://i.imgur.com/RYLzJUV.jpg',
-          content: 'Timing是一個致力於傳承受到街舞文化的街舞媒體。以易理解的原創性內容，受到廣大街舞圈的支持，也曾和台灣吧、hornet、台中歌劇院週刊等單位合作過，幫助更多一般大眾理解街舞文化。主要於團隊中擔當主理人，以及部分的影片剪輯與動畫後製',
+          name: 'Final Pitch',
+          link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/final-pitc_工作區域-1.jpg',
+          img: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/final-pitc_工作區域-1.jpg',
+          content: '',
+        },{
+          id: 2,
+          name: '餓趴了',
+          link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/528.png',
+          img: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/528.png',
+          content: '',
+        },{
+          id: 1,
+          name: '實衷之旅',
+          link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/時鐘_528.png',
+          img: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/時鐘_528.png',
+          content: '',
+
+        },{
+          id: 1,
+          name: 'Re-life',
+          link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/re-life_528_528.png',
+          img: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/re-life_528_528.png',
+          content: '',
+
+        },{
+          id: 1,
+          name: 'Pumbula',
+          link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/PUMBULA_528.png',
+          img: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/PUMBULA_528.png',
+          content: '',
         }
       ],
       showVideo: false,
@@ -193,7 +215,7 @@ class Collection extends PureComponent {
             }: {
               ...styles.h1,
               ...styles.hide}}>
-              從 2017 年起，紀錄一些我曾做過的事。
+              創11團隊回顧
             </h3>
           </div>
           <div style={styles.timeline}>
@@ -213,13 +235,13 @@ class Collection extends PureComponent {
                         alt={item.name}
                         src={item.img}
                         effect="blur" />
-                      <h2 style={showDesc ? {
+                      {/* <h2 style={showDesc ? {
                         ...styles.timelineContentTitle,
                         ...styles.show
                       } : {
                         ...styles.timelineContentTitle,
                         ...styles.hide
-                      }}>{item.date}</h2>
+                      }}>{item.date}</h2> */}
                       <p style={showDesc? {
                         ...styles.timelineContentDesc,
                         ...styles.show
