@@ -159,7 +159,7 @@ class Collection extends PureComponent {
             date: '2017.2 - 2017.5',
             // link: 'https://www.youtube.com/embed/kfzBM6ot9GI?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&modestbranding=0',
             // link: 'https://www.youtube.com/embed/nTm2fBQ3W3w?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&modestbranding=0',
-            link: 'https://www.youtube.com/embed/nTm2fBQ3W3w?controls=0&showinfo=0&rel=0&autoplay=1&loop=0&modestbranding=0&iv_load_policy=3',
+            link: 'https://www.youtube.com/embed/LhPtKrkjVks?controls=0&showinfo=0&rel=0&autoplay=1&loop=0&modestbranding=0&iv_load_policy=3',
             img: 'https://i.imgur.com/dnFtQI6.jpg',
             content: '全台公認最具指標性排舞競賽，被視為街舞年度盛會。將近2200名現場觀眾、直播線上人數可達一萬四千人。於2017年擔任總召，期間帶領50位團隊成員，策劃初賽＆決賽流程，並成功接洽Calvin',
         },{

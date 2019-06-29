@@ -12,7 +12,7 @@ import Components from "views/Components/Components.jsx";
 import LandingPage from "views/LandingPage/LandingPage.jsx";
 import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
-import BackendPage from "views/BackendPage/BackendPage.jsx";
+import CheckList from "views/CheckList/CheckList.jsx";
 
 import { StyleRoot } from 'radium';
 
@@ -29,7 +29,7 @@ const wrappedApp = (
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/profile-page" component={ProfilePage} />
           <Route path="/login-page" component={LoginPage} />
-          <Route path="/backend-page" component={BackendPage} />
+          <Route path="/checklist-page" component={CheckList} />
           <Route path="/" component={Components} />
         </Switch>
       </Router>
