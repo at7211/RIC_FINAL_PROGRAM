@@ -30,8 +30,8 @@ const wrappedApp = (
         <Route path="/landing-page" component={LandingPage} />
         <Route path="/profile-page" component={ProfilePage} />
         <Route path="/login-page" component={LoginPage} />
-        <Route path="/act" component={Activities} />
-        <Route path="/act0" component={Actpage} />
+        <Route path="/activities/:id" component={Actpage} />
+        <Route path="/activities" component={Activities} />
         <Route path="/contactus" component={Contactus} />
         <Route path="/" component={Components} />
       </Switch>
