@@ -25,7 +25,7 @@ import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 import image from "assets/img/bg7.jpg";
 
-class LoginPage extends React.Component {
+class Contact extends React.Component {
   constructor(props) {
     super(props);
     // we use this to make the card to appear after the page has been rendered
@@ -67,7 +67,7 @@ class LoginPage extends React.Component {
                 <Card className={classes[this.state.cardAnimaton]}>
                   <form className={classes.form}>
                     <CardHeader color="primary" className={classes.cardHeader}>
-                      <h4>Login</h4>
+                      <h4>CONTACT US</h4>
                       <div className={classes.socialLine}>
                         {/* <Button
                           justIcon
@@ -98,10 +98,10 @@ class LoginPage extends React.Component {
                         </Button> */}
                       </div>
                     </CardHeader>
-                    <p className={classes.divider}>STAFF ID</p>
+                    <p className={classes.divider}>留下您的基本資料<br></br>接收更多創創團隊的第一手資訊！</p>
                     <CardBody>
                       <CustomInput
-                        labelText="Account..."
+                        labelText="YOUR NAME"
                         id="first"
                         formControlProps={{
                           fullWidth: true
@@ -131,17 +131,19 @@ class LoginPage extends React.Component {
                         }}
                       /> */}
                       <CustomInput
-                        labelText="Password"
+                        labelText="YOUR EMAIL"
                         id="pass"
                         formControlProps={{
                           fullWidth: true
                         }}
+                      
                         inputProps={{
                           type: "password",
                           endAdornment: (
                             <InputAdornment position="end">
                               <Icon className={classes.inputIconsColor}>
-                                lock_outline
+                                {/* lock_outline */}
+                                mail
                               </Icon>
                             </InputAdornment>
                           ),
@@ -151,7 +153,7 @@ class LoginPage extends React.Component {
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
                       <Button simple color="primary" size="lg">
-                        LOGIN
+                        SEND
                       </Button>
                     </CardFooter>
                   </form>
@@ -166,8 +168,8 @@ class LoginPage extends React.Component {
   }
 }
 
-LoginPage.propTypes = {
+Contact.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(loginPageStyle)(LoginPage);
+export default withStyles(loginPageStyle)(Contact);
