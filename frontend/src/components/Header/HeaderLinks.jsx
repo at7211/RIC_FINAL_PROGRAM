@@ -17,6 +17,7 @@ import { Apps, CloudDownload } from "@material-ui/icons";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
 import Button from "components/CustomButtons/Button.jsx";
+import history from '../../history.js';
 
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
@@ -60,54 +61,12 @@ function HeaderLinks({ ...props }) {
             <Link to="/login-page" className={classes.dropdownLink}>
               創創Q&A
             </Link>,
-            // <a
-            //   href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
-            //   target="_blank"
-            //   className={classes.dropdownLink}
-            // >
-            //   Documentation
-            // </a>
           ]}
         />
       </ListItem>
       <Button color= "transparent" className= {classes.butt}>課程規劃</Button>
-
-      {/* <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          buttonText="學程活動"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              All components
-            </Link>,
-
-          ]}
-        />
-      </ListItem> */}
-       <Button color= "transparent"  className= {classes.butt}>學程活動</Button>
-      {/* <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          buttonText="課程規劃"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              All components
-            </Link>,
-
-          ]}
-        />
-      </ListItem> */}
-
+      <Button color= "transparent"  className= {classes.butt} onClick={() => history.push('/activities')}>學程活動</Button>
       <ListItem className={classes.listItem}>
-
         <CustomDropdown
           noLiPadding
           buttonText="申請學程"
