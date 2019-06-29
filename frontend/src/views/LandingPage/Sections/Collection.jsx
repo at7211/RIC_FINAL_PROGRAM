@@ -78,8 +78,8 @@ const styles = {
     display: 'flex',
     position: 'relative',
     transform: 'translateY(-80px)',
-
-  },  timelineImg: {
+  },
+  timelineImg: {
     maxWidth: '100%',
     boxShadow: '0 10px 15px rgba(0, 0, 0, 0.4)',
   },
@@ -103,6 +103,8 @@ const styles = {
     opacity: 1,
   },
   timelineContentTitle: {
+    position: 'relative',
+    opacity: 0,
     color:'black',
     fontSize: 66,
     margin: '-10px 0 0 0',
@@ -112,7 +114,9 @@ const styles = {
     fontFamily: '"Pathway Gothic One", sans-serif',
   },
   timelineContentDesc: {
+    position: 'relative',
     color: 'black',
+    opacity: 0,
   },
   timelineItem__active: {
     opacity: 1,
@@ -159,20 +163,14 @@ class Collection extends PureComponent {
   }
 
   handleScroll = () => {
-    if(window.pageYOffset > 300){
-      this.setState({ showTitle: true })
-    } else if (window.pageYOffset > 400) {
-      this.setState({ showVideo: true })
-    } else if (window.pageYOffset > 500) {
-      this.setState({ showDesc: true })
-    } else {
-      this.setState({ showVideo: false, showTitle: false, showDesc: false })
-    }
+    console.log('pageYOffset', window.pageYOffset)
+    if(window.pageYOffset > 200) this.setState({ showTitle: true })
+    if (window.pageYOffset > 400) this.setState({ showVideo: true })
+    if (window.pageYOffset > 600) this.setState({ showDesc: true })
   }
 
   render() {
     const { items, showVideo, showTitle, showDesc } = this.state;
-
     return (
       <Fragment>
         <div style={styles.wrapper}>
