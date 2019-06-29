@@ -94,9 +94,19 @@ const signupPageStyle = {
  marginBottom:"30px",
  fontWeight:"30"
   },
+  test:{
+  borderRadius:"5px"
+  },
+  font:{
+color:"green",
+fontStyle:"italic"
+  },
   cardHidden: {
     opacity: "0",
     transform: "translate3d(0, -60px, 0)"
+  },
+  smalltitle:{
+color:"gray"
   },
   pageHeader: {
     // oberflow:"auto",
