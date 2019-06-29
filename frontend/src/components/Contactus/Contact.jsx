@@ -19,43 +19,13 @@ import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
-import { Link, hashHistory } from "react-router";
+import CustomInput from "components/CustomInput/CustomInput.jsx";
 
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 import image from "assets/img/bg7.jpg";
 
-import { Form, Field } from 'react-final-form';
-import { Input, TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
-import { Mutation } from 'react-apollo';
-import gql from 'graphql-tag';
-
-import history from '../../history.js';
-
-const LOGIN = gql`
-  mutation login(
-    $account: String!
-    $password: String!
-  ){
-    login(
-      account: $account
-      password: $password
-    ) {
-      token
-    }
-  }
-`
-      // account: "andre"
-      // password: "Cep10andre"
-const styles= {
-  input: {
-    margin: '0 0 17px 0',
-    padding: '27px 0 0 0',
-    width: '100%',
-  }
-}
-
-class LoginPage extends React.Component {
+class Contact extends React.Component {
   constructor(props) {
     super(props);
     // we use this to make the card to appear after the page has been rendered
@@ -72,34 +42,10 @@ class LoginPage extends React.Component {
       700
     );
   }
-
-  onSubmit = (data, update) => {
-    console.log('loginData', data)
-    update({
-      variables: {
-        account: data.account,
-        password: data.password,
-      }
-    }).then(() => history.push('./admin'))
-  }
-
-  validate = values => {
-    const errors ={}
-    if (!values.account) {
-      errors.username = 'Required';
-    }
-    if (!values.password) {
-      errors.password = 'Required';
-    }
-    return errors;
-  }
-
   render() {
     const { classes, ...rest } = this.props;
     return (
       <div>
-<<<<<<< HEAD
-=======
         <Header
           absolute
           color="transparent"
@@ -107,7 +53,6 @@ class LoginPage extends React.Component {
           rightLinks={<HeaderLinks />}
           {...rest}
         />
->>>>>>> a9ac98b2a2d877895992af5fddd2425a8803ea8c
         <div
           className={classes.pageHeader}
           style={{
@@ -120,81 +65,9 @@ class LoginPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-<<<<<<< HEAD
-                  <Mutation mutation={LOGIN}>
-                    {update => (
-                      <Form
-                        onSubmit={data => this.onSubmit(data, update)}
-                        validate={this.validate}
-                        initialValues={({account: ''})}
-                        render={({ handleSubmit, form, submitting, pristine, values}) => (
-                          <form className={classes.form} onSubmit={handleSubmit}>
-                            <CardHeader color="primary" className={classes.cardHeader}>
-                              <h4>Login</h4>
-                            </CardHeader>
-                            <p className={classes.divider}>STAFF ID</p>
-                            <CardBody>
-                              <Field
-                                name="account"
-                                component={Input}
-                                type="text"
-                                endAdornment={
-                                  <InputAdornment position="end">
-                                    <People className={classes.inputIconsColor} />
-                                  </InputAdornment>
-                                }
-                                style={styles.input}
-                                placeholder="Account..."
-                              />
-                              <Field
-                                name="password"
-                                component={Input}
-                                type="password"
-                                endAdornment={
-                                  <InputAdornment position="end">
-                                    <Icon className={classes.inputIconsColor}>
-                                      lock_outline
-                                    </Icon>
-                                  </InputAdornment>
-                                }
-                                style={styles.input}
-                                placeholder="password"
-                              />
-                              {/* <Field
-                                name="passowrd"
-                                labelText="Password"
-                                id="pass"
-                                formControlProps={{
-                                  fullWidth: true
-                                }}
-                                inputProps={{
-                                  type: "password",
-                                  endAdornment: (
-                                    <InputAdornment position="end">
-                                      <Icon className={classes.inputIconsColor}>
-                                        lock_outline
-                                      </Icon>
-                                    </InputAdornment>
-                                  ),
-                                  autoComplete: "off"
-                                }}
-                                component={CustomInput}
-                              /> */}
-                            </CardBody>
-                            <CardFooter className={classes.cardFooter}>
-                              <Button simple color="primary" size="lg" type="submit">
-                                LOGIN
-                              </Button>
-                            </CardFooter>
-                          </form>
-                        )}
-                      />
-                    )}
-                  </Mutation>
-=======
                   <form className={classes.form}>
                     <CardHeader color="primary" className={classes.cardHeader}>
-                      <h4>Login</h4>
+                      <h4>CONTACT US</h4>
                       <div className={classes.socialLine}>
                         {/* <Button
                           justIcon
@@ -225,10 +98,10 @@ class LoginPage extends React.Component {
                         </Button> */}
                       </div>
                     </CardHeader>
-                    <p className={classes.divider}>STAFF ID</p>
+                    <p className={classes.divider}>留下您的基本資料<br></br>接收更多創創團隊的第一手資訊！</p>
                     <CardBody>
                       <CustomInput
-                        labelText="Account..."
+                        labelText="YOUR NAME"
                         id="first"
                         formControlProps={{
                           fullWidth: true
@@ -258,17 +131,19 @@ class LoginPage extends React.Component {
                         }}
                       /> */}
                       <CustomInput
-                        labelText="Password"
+                        labelText="YOUR EMAIL"
                         id="pass"
                         formControlProps={{
                           fullWidth: true
                         }}
+                      
                         inputProps={{
                           type: "password",
                           endAdornment: (
                             <InputAdornment position="end">
                               <Icon className={classes.inputIconsColor}>
-                                lock_outline
+                                {/* lock_outline */}
+                                mail
                               </Icon>
                             </InputAdornment>
                           ),
@@ -278,11 +153,10 @@ class LoginPage extends React.Component {
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
                       <Button simple color="primary" size="lg">
-                        LOGIN
+                        SEND
                       </Button>
                     </CardFooter>
                   </form>
->>>>>>> a9ac98b2a2d877895992af5fddd2425a8803ea8c
                 </Card>
               </GridItem>
             </GridContainer>
@@ -294,8 +168,8 @@ class LoginPage extends React.Component {
   }
 }
 
-LoginPage.propTypes = {
+Contact.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(loginPageStyle)(LoginPage);
+export default withStyles(loginPageStyle)(Contact);

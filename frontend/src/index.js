@@ -18,6 +18,12 @@ import Header from "components/Header/Header.jsx";
 import HeaderLinks from './components/Header/HeaderLinks.jsx';
 import Admin from './views/AdminPage/AdminPage.jsx';
 // import SimpleEditor from './views/FormPage/SimpleEditor.jsx';
+import Activities from "views/Activities/Activities";
+import Actpage from "views/Actpage/Actpage";
+import Contactus from "views/Contactus/Contactus";
+
+
+
 
 const client = new ApolloClient({ uri: "http://localhost:4000"});
 
@@ -34,19 +40,16 @@ const wrappedApp = (
             }}
             rightLinks={<HeaderLinks />}
           />
-                {/* <Header
-          absolute
-          color="transparent"
-          brand="NTU CEP"
-          rightLinks={<HeaderLinks />}
-          {...rest} */}
         <Switch>
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/profile-page" component={ProfilePage} />
           <Route path="/login-page" component={LoginPage} />
           <Route path='/form-page' component={FormPage} />
           <Route path='/form-page2' component={FormPage2} />
-          {/* <Route path='/post' component={SimpleEditor} /> */}
+          <Route path="/activities/:id" component={Actpage} />
+          <Route path="/activities" component={Activities} />
+          <Route path="/contactus" component={Contactus} />
+
           <Route path='/admin' component={Admin} />
           <Route path="/" component={Components} />
         </Switch>
