@@ -19,9 +19,21 @@ const users = [{
   password: "$2b$04$xk1YDg.alPqUdZLZh0TBoeu.jLu5xCoaeqXIMLJnJwirABUXaEPSW",
 }]
 
+const programApplyUsers = [{
+  id: 1,
+  name: 'Louis',
+  studentID: 'b04602022',
+  email: "asdasd@gmail.com",
+  department: 'ASD',
+  phone: '09123123213',
+  mobile: '09123123213',
+  address: 'asd',
+}]
+
 const db = {
   activities,
   users,
+  programApplyUsers,
 }
 
 export { db as default }
