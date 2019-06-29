@@ -38,8 +38,8 @@ const styles = {
     left: 0,
     right: 0,
     zIndex: -1,
-    opacity: 0.1,
-    filter: 'grayscale(80%)',
+    opacity: 0.05,
+    filter: 'grayscale(40%)',
   },
   timelineHeader: {
     display: 'flex',
@@ -163,7 +163,6 @@ class Collection extends PureComponent {
   }
 
   handleScroll = () => {
-    console.log('pageYOffset', window.pageYOffset)
     if(window.pageYOffset > 200) this.setState({ showTitle: true })
     if (window.pageYOffset > 400) this.setState({ showVideo: true })
     if (window.pageYOffset > 600) this.setState({ showDesc: true })
