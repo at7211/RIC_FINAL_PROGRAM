@@ -45,7 +45,7 @@ function HeaderLinks({ ...props }) {
                   color: "transparent"
                 }}
                 dropdownList={[
-                  <Link  className={classes.dropdownLink}>
+                  <Link to="/login-page" className={classes.dropdownLink}>
                     學程簡介
                   </Link>,
                   <Link to="/login-page" className={classes.dropdownLink}>

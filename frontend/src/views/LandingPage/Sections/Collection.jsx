@@ -3,6 +3,18 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const styles = {
+  show: {
+    transitionProperty: 'opacity top',
+    transitionDuration: '1s',
+    opacity: 1,
+    top: 0,
+  },
+  hide: {
+    transitionProperty: 'opacity top',
+    transitionDuration: '1s',
+    opacity: 0,
+    top: 16,
+  },
   wrapper:{
     position: 'relative',
     height: '100%',
@@ -12,8 +24,8 @@ const styles = {
     padding:' 200px 0 0 0',
   },
   h1:{
-    animationDuration: '1s',
-    animationFillMode: 'forwards',
+    position: 'relative',
+    opacity: 0,
   },
   backgroundVideo: {
     display: 'none',
@@ -26,8 +38,8 @@ const styles = {
     left: 0,
     right: 0,
     zIndex: -1,
-    opacity: 0.1,
-    filter: 'grayscale(80%)',
+    opacity: 0.05,
+    filter: 'grayscale(40%)',
   },
   timelineHeader: {
     display: 'flex',
@@ -66,8 +78,8 @@ const styles = {
     display: 'flex',
     position: 'relative',
     transform: 'translateY(-80px)',
-
-  },  timelineImg: {
+  },
+  timelineImg: {
     maxWidth: '100%',
     boxShadow: '0 10px 15px rgba(0, 0, 0, 0.4)',
   },
@@ -91,6 +103,8 @@ const styles = {
     opacity: 1,
   },
   timelineContentTitle: {
+    position: 'relative',
+    opacity: 0,
     color:'black',
     fontSize: 66,
     margin: '-10px 0 0 0',
@@ -100,7 +114,9 @@ const styles = {
     fontFamily: '"Pathway Gothic One", sans-serif',
   },
   timelineContentDesc: {
+    position: 'relative',
     color: 'black',
+    opacity: 0,
   },
   timelineItem__active: {
     opacity: 1,
@@ -132,7 +148,9 @@ class Collection extends PureComponent {
           content: 'Timing是一個致力於傳承受到街舞文化的街舞媒體。以易理解的原創性內容，受到廣大街舞圈的支持，也曾和台灣吧、hornet、台中歌劇院週刊等單位合作過，幫助更多一般大眾理解街舞文化。主要於團隊中擔當主理人，以及部分的影片剪輯與動畫後製',
         }
       ],
-      show: false,
+      showVideo: false,
+      showTitle: false,
+      showDesc: false,
     }
   }
 
@@ -145,21 +163,18 @@ class Collection extends PureComponent {
   }
 
   handleScroll = () => {
-    if(window.pageYOffset > 400){
-      this.setState({ show: true })
-    } else {
-      this.setState({ show: false})
-    }
+    if(window.pageYOffset > 200) this.setState({ showTitle: true })
+    if (window.pageYOffset > 400) this.setState({ showVideo: true })
+    if (window.pageYOffset > 600) this.setState({ showDesc: true })
   }
 
   render() {
-    const { items, show } = this.state;
-
+    const { items, showVideo, showTitle, showDesc } = this.state;
     return (
       <Fragment>
         <div style={styles.wrapper}>
             <iframe
-              style={show ? {
+              style={showVideo ? {
                 ...styles.backgroundVideo,
                 display: 'block',
               }: styles.backgroundVideo}
@@ -172,7 +187,14 @@ class Collection extends PureComponent {
               title="Youtube Player"
               unselectable="on" />
           <div style={styles.timelineHeader}>
-            <h3 style={styles.h1} >從 2017 年起，紀錄一些我曾做過的事。</h3>
+            <h3 style={showTitle ?{
+              ...styles.h1,
+              ...styles.show
+            }: {
+              ...styles.h1,
+              ...styles.hide}}>
+              從 2017 年起，紀錄一些我曾做過的事。
+            </h3>
           </div>
           <div style={styles.timeline}>
             {items.map(item => {
@@ -191,8 +213,19 @@ class Collection extends PureComponent {
                         alt={item.name}
                         src={item.img}
                         effect="blur" />
-                      <h2 style={styles.timelineContentTitle}>{item.date}</h2>
-                      <p style={styles.timelineContentDesc}>{item.content}</p>
+                      <h2 style={showDesc ? {
+                        ...styles.timelineContentTitle,
+                        ...styles.show
+                      } : {
+                        ...styles.timelineContentTitle,
+                        ...styles.hide
+                      }}>{item.date}</h2>
+                      <p style={showDesc? {
+                        ...styles.timelineContentDesc,
+                        ...styles.show
+                      }: {
+                        ...styles.timelineContentDesc,
+                        ...styles.hide}}>{item.content}</p>
                     </div>
                   </div>
                 </div>

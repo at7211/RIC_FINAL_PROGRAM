@@ -12,6 +12,7 @@ const SECRET = 'just_a_random_secret';
 const hash = text => bcrypt.hash(text, SALT_ROUNDS);
 
 let users = db.users;
+let programApplyUsers = db.programApplyUsers;
 const addUser = ({ account, email, password }) => (
   users[users.length] = {
     id: users[users.length - 1].id + 1,
@@ -20,6 +21,19 @@ const addUser = ({ account, email, password }) => (
     password
   }
 );
+
+const addProgramApplyUser = ({ name, studentID, department, phone, mobile, email, address }) => (
+  programApplyUsers[programApplyUsers.length] = {
+    id: programApplyUsers[programApplyUsers.length - 1].id + 1,
+    name,
+    studentID,
+    department,
+    phone,
+    mobile,
+    email,
+    address
+  }
+)
 
 // helper function
 const createToken = ({ id, email, name }) => jwt.sign({ id, email, name }, SECRET, {
@@ -49,7 +63,13 @@ const Mutation = {
 
     // 3. 成功則回傳 token
     return { token: await createToken(user) };
+  },
+  programApply: async ( root, { name, studentID, department, phone, mobile, email, address}, context) => {
+    const programApplyUserDuplicate = programApplyUsers.some(user => user.studentID === studentID)
+    if (programApplyUserDuplicate) throw new Error('User studentID Duplicate');
+
+    return addProgramApplyUser({ name, studentID, department, phone, mobile, email, address});
   }
-}
+ }
 
 export { Mutation as default }
