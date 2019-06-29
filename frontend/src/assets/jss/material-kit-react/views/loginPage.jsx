@@ -25,6 +25,7 @@ const signupPageStyle = {
     display: "flex",
 
   },
+
   container2: {
     ...container,
     zIndex: "2",
@@ -39,13 +40,13 @@ const signupPageStyle = {
   },
   con3: {
     width: "780px",
-    height: "2500px",
+    height: "100%",
     float: "left",
     marginTop: "100px",
     marginLeft: "150px"
   },
   con4: {
-    height: "2500px",
+    height: "100%",
 
     width: "250px",
 
@@ -53,6 +54,14 @@ const signupPageStyle = {
     marginTop: "100px",
     marginRight: "40px"
 
+  },
+  testpic: {
+    // position: "absolute",
+    // marginTop: "0",
+    // marginLeft: "0",
+    // width: "100%",
+    // height: "100%"
+    overflow: "inherit"
   },
   pic: {
     marginleft: "40px"
@@ -70,43 +79,51 @@ const signupPageStyle = {
     marginRight: "30px",
     marginTop: "30px",
     marginBottom: "30px",
+    borderRadius: "5px"
+  },
+  rad: {
+    borderRadius: "5px"
 
   },
+  bold: {
+    fontWeight: "bold"
+  },
   alsolike: {
-    marginRight: "20px"
+    marginRight: "20px",
+    marginBottom: "60px"
   },
-  arctitle:{
-  marginTop:"20px",
-  marginBottom:"20px"
+  arctitle: {
+    marginTop: "20px",
+    marginBottom: "20px"
   },
-  contactus:{
-    paddingTop:"10px",
-    paddingBottom:"20px",
-    width:"500px",
-    height:"300px",
-    textAlign:"center" ,
+  contactus: {
+    paddingTop: "10px",
+    paddingBottom: "20px",
+    width: "500px",
+    height: "300px",
+    textAlign: "center",
     color: " black",
-    backgroundColor:"#DDDDDD",
-    borderRadius:"5px"
+    backgroundColor: "#DDDDDD",
+    borderRadius: "5px"
   },
-  conmail:{
- marginTop:"30px",
- marginBottom:"30px",
- fontWeight:"30"
+  conmail: {
+    marginTop: "30px",
+    marginBottom: "30px",
+    fontWeight: "30"
   },
-  test:{
-  borderRadius:"5px"
+  test: {
+    borderRadius: "5px"
   },
-  font:{
-color:"green",
-fontStyle:"italic"
+  font: {
+    color: "green",
+    fontStyle: "italic"
   },
   cardHidden: {
     opacity: "0",
     transform: "translate3d(0, -60px, 0)"
   },
-  smalltitle:{
-color:"gray"
+  smalltitle: {
+    color: "gray"
   },
   pageHeader: {
     // oberflow:"auto",
