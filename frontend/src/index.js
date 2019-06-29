@@ -13,6 +13,7 @@ import LandingPage from "views/LandingPage/LandingPage.jsx";
 import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
 import FormPage from './views/FormPage/FormPage.jsx';
+import FormPage2 from './views/FormPage/FormPage2.jsx';
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from './components/Header/HeaderLinks.jsx';
 
@@ -43,6 +44,7 @@ const wrappedApp = (
           <Route path="/profile-page" component={ProfilePage} />
           <Route path="/login-page" component={LoginPage} />
           <Route path='/form-page' component={FormPage} />
+          <Route path='/form-page2' component={FormPage2} />
           <Route path="/" component={Components} />
         </Switch>
       </Router>

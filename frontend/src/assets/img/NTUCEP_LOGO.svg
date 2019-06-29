@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.6 91.85">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff6c37;
+        opacity: 0;
+        animation-name: animate_2;
+        animation-delay: 3.5s;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+        }
+      .cls-2 {
+        fill:none;
+        stroke:#424143;
+        stroke-miterlimit:10;
+        stroke-width:10px;
+        stroke-dasharray: 250;
+        stroke-dashoffset: 250;
+        animation-duration: 1.5s;
+        animation-name: animate_1;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+        transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+        }
+
+      @keyframes animate_1 {
+        0% {
+          stroke-dashoffset: 250;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes animate_2 {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </defs>
+  <title>資產 98</title>
+  <g id="圖層_2" data-name="圖層 2"><g id="圖層_1-2" data-name="圖層 1"><path id="_路徑_" data-name="&lt;路徑&gt;" class="cls-1" d="M65.06,0,36.44,52.21l-.18.35a2.11,2.11,0,0,0-.14.77,2.16,2.16,0,0,0,2.16,2.16,2.13,2.13,0,0,0,.71-.13l.53-.26L91.6,26.54A26.54,26.54,0,0,0,65.06,0"/><path class="cls-2" d="M74.8,48.29V82.82a4,4,0,0,1-4.07,4m-26.66-69h-35a4.05,4.05,0,0,0-4.08,4v61a4.05,4.05,0,0,0,4.08,4H70.73"/></g></g></svg>
