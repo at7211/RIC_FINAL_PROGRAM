@@ -56,6 +56,12 @@ const styles = {
   input: {
     width: '100%',
   },
+  checkbox:{
+    height: '34px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 }
 
 const onSubmit = (data, update) => {
@@ -177,6 +183,472 @@ function FormPage() {
                           二、歷年修習學程科目及學分表
                         </Typography>
                       </Grid>
+
+                      <Grid item xs={1} >
+                        <Typography variant="body1" >
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={9} style={{ textAlign: 'center'}} >
+                        <Typography variant="body1" >
+                          本欄請申請人填寫
+                          </Typography>
+                      </Grid>
+                      <Grid item xs={2} style={{ textAlign: 'center'}}>
+                        <Typography variant="body1"  style={{color:"red"}}>
+                          審核結果<br/>
+                          (申請人請勿填寫)
+                          </Typography>
+                      
+                      </Grid>
+
+                      <Grid item xs={1} >
+                      </Grid>
+                      <Grid item xs={2} style={{ textAlign: 'center'}} >
+                        <Typography variant="body1">
+                          學年度
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={1} style={{ textAlign: 'center'}}>
+                        <Typography variant="body1" >
+                        上/下學期
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={3}  style={{ textAlign: 'center'}}>
+                        <Typography variant="body1" >
+                        修習科目
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={1} style={{ textAlign: 'center'}} >
+                        <Typography variant="body1">
+                        核心課程
+                        (請打勾)
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={1} style={{ textAlign: 'center'}}>
+                        <Typography variant="body1" >
+                        選修課程
+                        (請打勾)
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={1} style={{ textAlign: 'center'}}>
+                        <Typography variant="body1" >
+                        修習<br/>學分數
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={2} style={{ textAlign: 'center'}}>
+                        <Typography variant="body1" style={{color:"red"}} >
+                        核定學分數
+                        </Typography>
+                      </Grid>
+
+                      {/* 外層 */}
+                      <Grid item xs={1} >
+                        <Typography variant="body1" >
+                        修習課程
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={2} style={{ textAlign: 'center'}} >
+                                <Grid item xs={12}>
+                                  <Field
+                                    required
+                                    name="mobile"
+                                    component={TextField}
+                                    style={styles.input}
+                                    placeholder=""
+                                  />
+                                </Grid>
+                                <Grid item xs={12}>
+                                  <Field
+                                    required
+                                    name="mobile"
+                                    component={TextField}
+                                    style={styles.input}
+                                    placeholder=""
+                                  />
+                                </Grid>
+                                <Grid item xs={12}>
+                                  <Field
+                                    required
+                                    name="mobile"
+                                    component={TextField}
+                                    style={styles.input}
+                                    placeholder=""
+                                  />
+                                </Grid>
+                                <Grid item xs={12}>
+                                  <Field
+                                    required
+                                    name="mobile"
+                                    component={TextField}
+                                    style={styles.input}
+                                    placeholder=""
+                                  />
+                                </Grid>
+                                <Grid item xs={12}>
+                                  <Field
+                                    required
+                                    name="mobile"
+                                    component={TextField}
+                                    style={styles.input}
+                                    placeholder=""
+                                  />
+                                </Grid>
+                                <Grid item xs={12}>
+                                  <Field
+                                    required
+                                    name="mobile"
+                                    component={TextField}
+                                    style={styles.input}
+                                    placeholder=""
+                                  />
+                                </Grid>
+                      </Grid>
+                      <Grid item xs={1} style={{ textAlign: 'center'}}>
+                                          
+                                          <Grid item xs={12}>
+                                              <Field
+                                                required
+                                                name="mobile"
+                                                component={TextField}
+                                                style={styles.input}
+                                                placeholder=""
+                                              />
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                              <Field
+                                                required
+                                                name="mobile"
+                                                component={TextField}
+                                                style={styles.input}
+                                                placeholder=""
+                                              />
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                              <Field
+                                                required
+                                                name="mobile"
+                                                component={TextField}
+                                                style={styles.input}
+                                                placeholder=""
+                                              />
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                              <Field
+                                                required
+                                                name="mobile"
+                                                component={TextField}
+                                                style={styles.input}
+                                                placeholder=""
+                                              />
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                              <Field
+                                                required
+                                                name="mobile"
+                                                component={TextField}
+                                                style={styles.input}
+                                                placeholder=""
+                                              />
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                              <Field
+                                                required
+                                                name="mobile"
+                                                component={TextField}
+                                                style={styles.input}
+                                                placeholder=""
+                                              />
+                                            </Grid>
+                      </Grid>
+                      <Grid item xs={3}  style={{ textAlign: 'center'}}>
+                                  <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                      </Grid>
+                      <Grid item xs={1} style={{ textAlign: 'center'}} >
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                      </Grid>   
+                      <Grid item xs={1} style={{ textAlign: 'center'}} >
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                    <div  style={styles.checkbox} >
+                                        <input type="checkbox" name="employed" />
+                                        <span id="employed_error" />
+                                    </div>
+                                    </Grid>
+                      </Grid>   
+
+
+
+                      <Grid item xs={1} style={{ textAlign: 'center'}}>
+                                        <Grid item xs={12}>
+                                            <Field
+                                              required
+                                              name="mobile"
+                                              component={TextField}
+                                              style={styles.input}
+                                              placeholder=""
+                                            />
+                                          </Grid>
+                                          <Grid item xs={12}>
+                                            <Field
+                                              required
+                                              name="mobile"
+                                              component={TextField}
+                                              style={styles.input}
+                                              placeholder=""
+                                            />
+                                          </Grid>
+                                          <Grid item xs={12}>
+                                            <Field
+                                              required
+                                              name="mobile"
+                                              component={TextField}
+                                              style={styles.input}
+                                              placeholder=""
+                                            />
+                                          </Grid>
+                                          <Grid item xs={12}>
+                                            <Field
+                                              required
+                                              name="mobile"
+                                              component={TextField}
+                                              style={styles.input}
+                                              placeholder=""
+                                            />
+                                          </Grid>
+                                          <Grid item xs={12}>
+                                            <Field
+                                              required
+                                              name="mobile"
+                                              component={TextField}
+                                              style={styles.input}
+                                              placeholder=""
+                                            />
+                                          </Grid>
+                                          <Grid item xs={12}>
+                                            <Field
+                                              required
+                                              name="mobile"
+                                              component={TextField}
+                                              style={styles.input}
+                                              placeholder=""
+                                            />
+                                          </Grid>
+                        
+                      </Grid>
+                      <Grid item xs={2} style={{ textAlign: 'center'}}>
+                      <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                      <Field
+                                        required
+                                        name="mobile"
+                                        component={TextField}
+                                        style={styles.input}
+                                        placeholder=""
+                                      />
+                                    </Grid>
+
+                        
+                      </Grid>
+                      {/* 外層結束 */}
+
+                      <Grid item xs={9} style={{ textAlign: 'center'}} >
+                        <Typography variant="body1">
+                          學分總計
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={1} style={{ textAlign: 'center'}}>
+                          <Field
+                            required
+                            name="mobile"
+                            component={TextField}
+                            style={styles.input}
+                            placeholder="總學分"
+                          />
+                      </Grid>
+                      <Grid item xs={2} style={{ textAlign: 'center'}}>
+                        <Field
+                            required
+                            name="mobile"
+                            component={TextField}
+                            style={styles.input}
+                            placeholder="總核定學分"
+                          />
+                      </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                       <Grid item xs={12}>
                         <Typography variant="h5" component="h3">
                           三、紙本繳交

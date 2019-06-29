@@ -269,7 +269,7 @@ function FormPage2() {
                       </Grid>
                       <Grid item xs={1}>
                         <Typography variant="body1">
-                         申請研修原因
+                         申請<br/>研修<br/>原因
                         </Typography>
                       </Grid>
                   
@@ -286,8 +286,8 @@ function FormPage2() {
                         />
                       </Grid>
 
-                      <Grid item xs={12}>
-                        <Typography variant="body2" >
+                      <Grid item xs={12} style={{margin: '100px 0 0 0',}}>
+                        <Typography variant="body2" style={{textAlign: 'center'}}>
                           申請延修保留學程資格截止日期為
                           <span style={{color:"red"}}>
                             108年6月24日（一）下午5點 
@@ -295,18 +295,18 @@ function FormPage2() {
                           ，逾時恕不受理，請同學把握時間於辦公時間將紙本申請書繳交至學程辦公室 周孟函
                         </Typography>
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={6} style={{margin: '100px 0 0 0',}}>
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={6} style={{margin: '100px 0 0 0',}}>
                         <Typography variant="body1">
-                          申請人: <span style={{width: 90, display: "inline-block"}}/>（簽名）<br/>
+                          申請人: <span style={{width: 180, display: "inline-block"}}/>（簽名）<br/>
                           申請日期：<span style={{width: 16, display: "inline-block"}}/>年<span style={{width: 16, display: "inline-block"}}/>月<span style={{width:16, display: "inline-block"}}/>日
                         </Typography>
                       </Grid>
-                      <Grid item xs={12}>
+                      <Grid item xs={12} style={{margin: '100px 0 0 0',}}>
                         <Typography variant="body1">
                           敬陳<br/>
-                          學程主任：<span style={{width: 90, display: "inline-block"}}/>（簽名）
+                          學程主任：<span style={{width: 180, display: "inline-block"}}/>（簽名）
                         </Typography>
                       </Grid>
 

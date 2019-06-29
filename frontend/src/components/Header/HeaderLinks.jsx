@@ -68,22 +68,23 @@ function HeaderLinks({ ...props }) {
       <Button color= "transparent"  className= {classes.butt} onClick={() => history.push('/activities')}>學程活動</Button>
       <ListItem className={classes.listItem}>
         <CustomDropdown
-          noLiPadding
-          buttonText="申請學程"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              學程常用表格
-            </Link>,
+            noLiPadding
+            buttonText="學程相關表單"
+            buttonProps={{
+              className: classes.navLink,
+              color: "transparent"
+            }}
+            dropdownList={[
+              <Link to="/form-page" className={classes.dropdownLink}>
+                學程學分證明申請
+              </Link>,
+              <Link to="/form-page2" className={classes.dropdownLink}>
+                核心課程延修申請表
+              </Link>,
 
-          ]}
-        />
+            ]}
+          />
       </ListItem>
-
-
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
@@ -99,40 +100,9 @@ function HeaderLinks({ ...props }) {
              <Link to="/" className={classes.dropdownLink}>
              友站分享
            </Link>,
-
           ]}
         />
-
       </ListItem>
-
-      {/* <ListItem className={classes.listItem}>
-        <Button
-          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
-          <CloudDownload className={classes.icons} /> Download
-        </Button>
-      </ListItem> */}
-      {/* <ListItem className={classes.listItem}>
-
-        <Tooltip
-          id="instagram-twitter"
-          title="Follow us on twitter"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
-            target="_blank"
-            color="transparent"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
-          </Button>
-        </Tooltip>
-      </ListItem> */}
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
@@ -167,23 +137,6 @@ function HeaderLinks({ ...props }) {
           </Button>
         </Tooltip>
       </ListItem>
-      {/* <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-tooltip"
-          title="Follow us on instagram"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
-          </Button>
-        </Tooltip>
-      </ListItem> */}
     </List>
   );
 }
