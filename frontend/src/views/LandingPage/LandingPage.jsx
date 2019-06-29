@@ -9,77 +9,142 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 
 // core components
-import Header from "components/Header/Header.jsx";
-import Footer from "components/Footer/Footer.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
-import Parallax from "components/Parallax/Parallax.jsx";
+import Footer from "./Sections/Footer";
 
 import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx";
 
 // Sections for this page
-import ProductSection from "./Sections/ProductSection.jsx";
-import TeamSection from "./Sections/TeamSection.jsx";
-import WorkSection from "./Sections/WorkSection.jsx";
+// import ProductSection from "./Sections/ProductSection.jsx";
+// import TeamSection from "./Sections/TeamSection.jsx";
+// import WorkSection from "./Sections/WorkSection.jsx";
+import LOGO from '../../assets/img/NTUCEP_LOGO.svg';
+import SectionCarousel from "./Sections/SectionCarousel.jsx";
+import Collection from "./Sections/Collection.jsx";
 
-const dashboardRoutes = [];
+const styles= {
+  wrapper: {
+    background: '#fff',
+    height: '100%',
+  },
+  buttonWrapper: {
+    display: 'flex',
+    width: '100vw',
+    height: '100vh',
+    justifyContent : 'center',
+    alignItems: 'center',
+  },
+  logoWrapper: {
+    display: 'flex',
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    border: 0,
+    position: 'relative',
+    opacity: 0,
+    right: -150,
+  },
+  titleWrapper: {
+    position: 'relative',
+    top: 6,
+    left: -140,
+    opacity: 0,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  title: {
+    fontSize: 28,
+    margin: '6px 0',
+    fontWeight: 550,
+  },
+  show: {
+    transitionProperty: 'opacity',
+    transitionDuration: '1s',
+    opacity: 1,
+  },
+  showTitleWrapper: {
+    transitionProperty: 'opacity, left',
+    transitionDuration: '0.8s',
+    opacity: 1,
+    left: 10
+  },
+  showLogo: {
+    transitionProperty: 'opacity, right',
+    transitionDuration: '0.8s',
+    opacity: 1,
+    right: 10
+  },
+  hide: {
+    transitionProperty: 'opacity',
+    transitionDuration: '1s',
+    opacity: 0,
+  },
+}
 
 class LandingPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = ({
+      open: false,
+      opening: false,
+    })
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ opening: true })
+    }, 2000);
+    setTimeout(() => {
+      this.setState({ open: true })
+    }, 10000)
+  }
+
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes } = this.props;
+    const { open, opening } = this.state;
+
     return (
-      <div>
-        <Header
-          color="transparent"
-          routes={dashboardRoutes}
-          brand="Material Kit React"
-          rightLinks={<HeaderLinks />}
-          fixed
-          changeColorOnScroll={{
-            height: 400,
-            color: "white"
-          }}
-          {...rest}
-        />
-        <Parallax
-          filter
-          image="https://tec.ntu.edu.tw/wp-content/uploads/2017/10/acce-slider-bg.png"
-        >
-          <div className={classes.container}>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>台大創創 X 企業垂直加速器</h1>
-                <h4>
-                  Every landing page needs a small description after the big
-                  bold title, that{"'"}s why we added this text here. Add here
-                  all the information that can make you or your product create
-                  the first impression.
-                </h4>
-                <br />
-                <Button
-                  color="danger"
-                  size="lg"
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fas fa-play" />
-                  Watch video
-                </Button>
-              </GridItem>
-            </GridContainer>
-          </div>
-        </Parallax>
-        <div className={classNames(classes.main, classes.mainRaised)}>
-          <div className={classes.container}>
-            <ProductSection />
-            <TeamSection />
-            <WorkSection />
+      <div style={styles.wrapper}>
+        <div style={
+          open ? {
+          ...styles.buttonWrapper,
+          display: 'none',
+          } : {
+          ...styles.buttonWrapper,
+          ...styles.show
+          }
+        }>
+          <button
+            type="button"
+            style={
+              opening ? {
+                ...styles.logo,
+                ...styles.showLogo
+              } : styles.logo}
+            onClick={() => this.setState({open: true})}>
+            <img src={LOGO}  alt="NTUCEP-logo"/>
+          </button>
+          <div style={
+            opening ? {
+              ...styles.titleWrapper,
+              ...styles.showTitleWrapper
+            } : styles.titleWrapper}>
+            <span style={styles.title}>臺大</span>
+            <span style={styles.title}>創創學程</span>
           </div>
         </div>
-        <Footer />
+        <div style={open ? styles.show : {...styles.hide, height: 0} }>
+          <SectionCarousel />
+            <div className={classNames(classes.main, classes.mainRaised)}>
+              <div className={classes.container}>
+                {/* <ProductSection />
+                <TeamSection />
+                <WorkSection /> */}
+                <Collection />
+              </div>
+            </div>
+          <Footer />
+        </div>
       </div>
     );
   }
