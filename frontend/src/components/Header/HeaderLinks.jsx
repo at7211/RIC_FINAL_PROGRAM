@@ -54,12 +54,12 @@ function HeaderLinks({ ...props }) {
                 ]}
               />
             </ListItem>,
-            <Link to="/login-page" className={classes.dropdownLink}>
-            創創11TH團隊
-            </Link>,
-            <Link to="/login-page" className={classes.dropdownLink}>
-              創創Q&A
-            </Link>,
+            // <Link to="/login-page" className={classes.dropdownLink}>
+            // 創創11TH團隊
+            // </Link>,
+            // <Link to="/login-page" className={classes.dropdownLink}>
+            //   創創Q&A
+            // </Link>,
             // <a
             //   href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
             //   target="_blank"
@@ -109,19 +109,22 @@ function HeaderLinks({ ...props }) {
       <ListItem className={classes.listItem}>
 
         <CustomDropdown
-          noLiPadding
-          buttonText="申請學程"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              學程常用表格
-            </Link>,
+            noLiPadding
+            buttonText="學程相關表單"
+            buttonProps={{
+              className: classes.navLink,
+              color: "transparent"
+            }}
+            dropdownList={[
+              <Link to="/form-page" className={classes.dropdownLink}>
+                學程學分證明申請
+              </Link>,
+              <Link to="/form-page2" className={classes.dropdownLink}>
+                核心課程延修申請表
+              </Link>,
 
-          ]}
-        />
+            ]}
+          />
       </ListItem>
 
 
