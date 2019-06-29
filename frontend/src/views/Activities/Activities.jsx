@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import Footer from "components/Footer/Footer.jsx";
+import Footer from '../LandingPage/Sections/Footer';
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 
@@ -98,7 +98,7 @@ class Activities extends React.Component {
                 <div><NavLink to={"/activities/" + String(post.id)} className={classes.font}>繼續閱讀</NavLink></div>
               </div>)}
           </div>
-          <Footer whiteFont />
+          <Footer />
         </div>
       </div>
     );

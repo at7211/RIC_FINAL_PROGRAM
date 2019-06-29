@@ -81,7 +81,6 @@ function HeaderLinks({ ...props }) {
               <Link to="/form-page2" className={classes.dropdownLink}>
                 核心課程延修申請表
               </Link>,
-
             ]}
           />
       </ListItem>
