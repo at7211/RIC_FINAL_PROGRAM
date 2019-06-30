@@ -46,25 +46,25 @@ function HeaderLinks({ ...props }) {
                   color: "transparent"
                 }}
                 dropdownList={[
-                  <Link to="/login-page" className={classes.dropdownLink}>
+                  <Link to="/" className={classes.dropdownLink}>
                     學程簡介
                   </Link>,
-                  <Link to="/login-page" className={classes.dropdownLink}>
+                  <Link to="/" className={classes.dropdownLink}>
                     創創11TH團隊
                   </Link>,
                 ]}
               />
             </ListItem>,
-            <Link to="/login-page" className={classes.dropdownLink}>
-            創創11TH團隊
+            <Link to="/" className={classes.dropdownLink}>
+            學程設置辦法
             </Link>,
-            <Link to="/login-page" className={classes.dropdownLink}>
-              創創Q&A
+            <Link to="/" className={classes.dropdownLink}>
+              聯絡我們
             </Link>,
           ]}
         />
       </ListItem>
-      <Button color= "transparent" className= {classes.butt}>課程規劃</Button>
+      <Button color= "transparent" className= {classes.butt} onClick={() => history.push('/')}>課程規劃</Button>
       <Button color= "transparent"  className= {classes.butt} onClick={() => history.push('/activities')}>學程活動</Button>
       <ListItem className={classes.listItem}>
         <CustomDropdown

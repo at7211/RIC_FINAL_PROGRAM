@@ -11,19 +11,13 @@ const activities = [{
     content: 'test',
     date: '2019-04-02'
   }, {
-    id: 2,
+    id: 3,
     link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/04/官網_FB-1024x683.png',
     title: '2019創創週《創闖看!》系列活動',
     content: 'test',
     date: '2019-04-02'
   }, {
-    id: 2,
-    link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/藝術創作-724x1024.jpg',
-    title: '《譯作》藝術創作期末成果展',
-    content: 'test',
-    date: '2019-04-02'
-  }, {
-    id: 2,
+    id: 4,
     link: 'https://cep.ntu.edu.tw/wp-content/uploads/2019/05/qa-05-1024x1024.jpg',
     title: 'NTUCEP Q&A',
     content: 'test',

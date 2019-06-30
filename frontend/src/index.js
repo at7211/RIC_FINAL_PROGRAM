@@ -51,7 +51,7 @@ const wrappedApp = (
           <Route path="/contactus" component={Contactus} />
 
           <Route path='/admin' component={Admin} />
-          <Route path="/" component={Components} />
+          <Route path="/" component={LandingPage} />
         </Switch>
       </Router>
     </ApolloProvider>

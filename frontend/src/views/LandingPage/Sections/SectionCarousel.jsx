@@ -55,11 +55,12 @@ class SectionCarousel extends React.Component {
                     src={img.link}
                     alt="First slide"
                     className="slick-image"
+                    style ={{height : 360 }}
                   />
                   <div className="slick-caption" >
                     <h4>
-                      <LocationOn className="slick-icons" />
-                      {img.describe}
+                      <LocationOn className="slick-icons" style ={{color : "black"}}/>
+                      {img.describe}1234567
                     </h4>
                   </div>
                 </div>
