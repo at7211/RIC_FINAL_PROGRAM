@@ -1,8 +1,6 @@
 # FINAL PROJECT- GROUP 40<br/>
 ###台大創創學程官方形象網站與後台製作
 
-
-- Deployment: http://172.105.201.106:3001/landing-page
 - Github Repo: https://github.com/at7211/RIC_FINAL_PROGRAM- 
 - Demo Vedio: https://youtu.be/w_js5CSDGEg
 
